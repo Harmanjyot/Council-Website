@@ -1,5 +1,5 @@
 <?php
-$connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
+  require "../php/conn.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Teacher's Login</title>
+    <title>Admin</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +27,11 @@ $connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="app sidebar-mini rtl">
+
+
+
+
+
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html"></a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
@@ -36,62 +41,40 @@ $connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="dashboard.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li><a class="app-menu__item" href="studentDetails.php"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Student Details</span></a>
+        <li><a class="app-menu__item" href="dashboard.php"><i class="app-menu__icon fa fas fa-line-chart"></i><span class="app-menu__label"> Dashboard</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> Events</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="events_Cultural.php"><i class="icon fa fa-circle-o"></i> Cultural</a></li>
+            <li><a class="treeview-item" href="events_Sports.php"><i class="icon fa fa-circle-o"></i> Sports</a></li>
+            <li><a class="treeview-item" href="events_Technical.php"><i class="icon fa fa-circle-o"></i> Technical</a></li>
+          </ul>
         </li>
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Attendance</span></a>
+
+        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student  Details</span></a>
+        </li>
+        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
+        </li>
+        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
       </ul>
     </aside>
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-dashboard"></i> Dashboard</h1>
+          <h1> Sports Events</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              
-              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    		  <script type="text/javascript">
-      google.charts.load('current', {'packages':['bar']});
-      google.charts.setOnLoadCallback(drawStuff);
-
-      function drawStuff() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Roll No', 'Lectures Attended'],
-          <?php 
-
-            $sql = "SELECT * FROM attendance19_20";
-            $result  = mysqli_query($connection ,$sql);
-            if($result->num_rows > 0){
-              while($row = $result->fetch_assoc()){
-            echo "['".$row['RollNo']."', ".$row['Lectures']."],";
-          }
-      }?>
-        ]);
-
-        var options = {
-          title: 'Lecturs attended at a glance',
-          width: 900,
-          legend: { position: 'none' },
-          chart: { title: 'Lectures attended',
-                   subtitle: '' },
-          bars: 'horizontal', // Required for Material Bar Charts.
-          axes: {
-            x: {
-              0: { side: 'top', label: 'Lectures'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-        chart.draw(data, options);
-      };
-    </script>
+              <div class="container box">
+                 <h1 align="center">Add New Sport Events</h1>
+                 <br />
+                 <div class="table-responsive">
+                    <div id = "live_data"></div>
+                 </div>
+              </div>
     <div id="top_x_div" style="width: 900px; height: 500px;"></div>
 
             </div>
@@ -104,19 +87,114 @@ $connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <!-- Google analytics script-->
-    <script type="text/javascript">
-      if(document.location.hostname == 'pratikborsadiya.in') {
-      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      	ga('create', 'UA-72504830-1', 'auto');
-      	ga('send', 'pageview');
-      }
-    </script>
+
+    <script>  
+ $(document).ready(function(){  
+      function fetch_data()  
+      {  
+           $.ajax({  
+                url:"select.php",  
+                method:"POST",  
+                success:function(data){  
+                     $('#live_data').html(data);  
+                }  
+           });  
+      }  
+      fetch_data();  
+      $(document).on('click', '#btn_add', function(){  
+           var sport_name = $('#sport_name').text();  
+           var sport_date = $('#sport_date').text();  
+           var sport_time = $('#sport_time').text(); 
+           var sport_desc = $('#sport_desc').text(); 
+           var eventType = "Sports";
+           if(sport_name == '')  
+           {  
+                alert("Enter sport_name");  
+                return false;  
+           }  
+           if(sport_date == '')  
+           {  
+                alert("Enter sport_date");  
+                return false;  
+           } 
+           if(sport_time == '')  
+           {  
+                alert("Enter sport_time");  
+                return false;  
+           }  
+           if(sport_desc == '')  
+           {  
+                alert("Enter sport_desc");  
+                return false;  
+           }  
+           $.ajax({  
+                url:"insert.php",  
+                method:"POST",  
+                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, eventType:eventType},  
+                dataType:"text",  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     fetch_data();  
+                }  
+           })  
+      });  
+      function edit_data(id, text, column_name)  
+      {  
+           $.ajax({  
+                url:"edit.php",  
+                method:"POST",  
+                data:{id:id, text:text, column_name:column_name},  
+                dataType:"text",  
+                success:function(data){  
+                     alert(data);  
+                     fetch_data();
+                }  
+           });  
+      }  
+      $(document).on('blur', '.sport_name', function(){  
+           var id = $(this).data("id1");  
+           var sport_name = $(this).text();  
+           edit_data(id, sport_name, "eventName");  
+      });  
+      $(document).on('blur', '.sport_desc', function(){  
+           var id = $(this).data("id4");  
+           var sport_desc = $(this).text();  
+           edit_data(id,sport_desc, "eventDescription");  
+      });  
+      $(document).on('blur', '.sport_time', function(){  
+           var id = $(this).data("id3");  
+           var sport_time = $(this).text();  
+           edit_data(id, sport_time, "eventTime");  
+      });  
+      $(document).on('blur', '.sport_date', function(){  
+           var id = $(this).data("id2");  
+           var sport_date = $(this).text();  
+           edit_data(id,sport_date, "eventDate");  
+      });  
+      $(document).on('click', '.btn_delete', function(){  
+           var id=$(this).data("id5");  
+           if(confirm("Are you sure you want to delete this?"))  
+           {  
+                $.ajax({  
+                     url:"delete.php",  
+                     method:"POST",  
+                     data:{id:id},  
+                     dataType:"text",  
+                     success:function(data){  
+                          alert(data);  
+                          fetch_data();  
+                     }  
+                });  
+           }  
+      });  
+ });  
+ </script>
+
   </body>
 </html>

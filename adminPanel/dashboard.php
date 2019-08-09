@@ -1,5 +1,5 @@
 <?php
-$connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
+  require "../php/conn.php";
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Admin Login</title>
+    <title>Admin</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,10 +36,20 @@ $connection = mysqli_connect('Localhost' , 'root' ,'' ,'councilwebsite');
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
       <ul class="app-menu">
-        <li><a class="app-menu__item" href="dashboard.php"><i class="app-menu__icon fa fas fa-line-chart"></i><span class="app-menu__label">Dashboard</span></a></li>
-        <li><a class="app-menu__item" href="studentDetails.php"><i class="app-menu__icon fa fas fa-gamepad"></i><span class="app-menu__label">Events List</span></a>
+        <li><a class="app-menu__item" href="dashboard.php"><i class="app-menu__icon fa fas fa-line-chart"></i><span class="app-menu__label"> Dashboard</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label"> Events</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="events_Cultural.php"><i class="icon fa fa-circle-o"></i> Cultural</a></li>
+            <li><a class="treeview-item" href="events_Sports.php"><i class="icon fa fa-circle-o"></i> Sports</a></li>
+            <li><a class="treeview-item" href="events_Technical.php"><i class="icon fa fa-circle-o"></i> Technical</a></li>
+          </ul>
         </li>
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label">Student  Details</span></a>
+
+        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student  Details</span></a>
+        </li>
+        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
+        </li>
+        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
       </ul>
     </aside>
