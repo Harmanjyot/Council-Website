@@ -144,6 +144,67 @@
                 }  
            })  
       });  
+
+       $(document).on('click', '.update', function(){
+        $('#image_id').val($(this).attr("id"));
+        $('#action').val("update");
+        $('.modal-title').text("Update Image");
+        $('#insert').val("Update");
+        $('#imageModal').modal("show");
+       });
+      //     $(document).on('click', '#uploadImage', function(){  
+      //      var sport_name = $('#sport_name').text();  
+           
+      //      $.ajax({  
+      //           url:"upload.php",  
+      //           method:"POST",  
+      //           data:{sport_name: sport_name, filename:filename},  
+      //           dataType:"text",  
+      //           success:function(data)  
+      //           {  
+      //                alert(data);  
+      //                fetch_data();  
+      //           }  
+      //      })  
+      // }); 
+       $('#image_form').submit(function(event){
+        event.preventDefault();
+        var image_name = $('#image').val();
+        if(image_name == '')
+        {
+         alert("Please Select Image");
+         return false;
+        }
+        else
+        {
+         var extension = $('#image').val().split('.').pop().toLowerCase();
+         if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+         {
+          alert("Invalid Image File");
+          $('#image').val('');
+          return false;
+         }
+         else
+         {
+          $.ajax({
+           url:"upload.php",
+           method:"POST",
+           data:new FormData(this),
+           contentType:false,
+           processData:false,
+           success:function(data)
+           {
+            alert(data);
+            fetch_data();
+            $('#image_form')[0].reset();
+            $('#imageModal').modal('hide');
+           }
+          });
+         }
+        }
+       });
+
+
       function edit_data(id, text, column_name)  
       {  
            $.ajax({  
@@ -176,7 +237,7 @@
            var id = $(this).data("id2");  
            var sport_date = $(this).text();  
            edit_data(id,sport_date, "eventDate");  
-      });  
+      });   
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id5");  
            if(confirm("Are you sure you want to delete this?"))  
@@ -198,3 +259,26 @@
 
   </body>
 </html>
+
+<div id="imageModal" class="modal fade" role="dialog">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <h4 class="modal-title">Add Image</h4>
+   </div>
+   <div class="modal-body">
+    <form id="image_form" method="post" enctype="multipart/form-data">
+     <p><label>Select Image</label>
+     <input type="file" name="image" id="image" /></p><br />
+     <input type="hidden" name="action" id="action" value="insert" />
+     <input type="hidden" name="image_id" id="image_id" />
+     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+     </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+   </div>
+  </div>
+ </div>

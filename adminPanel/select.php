@@ -11,7 +11,9 @@
                      <th width="20%">Event Name</th>  
                      <th width="15%">Event Date</th>  
                      <th width="15%">Event Time</th>  
-                     <th width="30%">Event Description</th>  
+                     <th width="30%">Event Description</th> 
+                     <th width="50%">Event Image</th>
+                     <th width="50%">Image Preview</th>
                      <th width="10%">Delete</th>  
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
@@ -25,6 +27,12 @@
                      <td class = "sport_date" data-id2="'.$row["SrNo"].'" contenteditable>'.$row["eventDate"].'</td>  
                      <td class = "sport_time" data-id3="'.$row["SrNo"].'" contenteditable>'.$row["eventTime"].'</td>  
                      <td class = "sport_desc" data-id4="'.$row["SrNo"].'" contenteditable>'.$row["eventDescription"].'</td>  
+                     <td>
+                        <button type="button" name="update" class="btn btn-warning bt-xs update" id="'.$row["SrNo"].'">Upload</button>
+                      </td>
+                      <td>
+                        <img src="data:image/jpeg;base64,'.base64_encode($row['eventImage'] ).'" height="60" width="75" />
+                      </td>
                      <td><button type="button" name="delete_btn" data-id5="'.$row["SrNo"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
                 </tr>  
            ';  
@@ -53,5 +61,6 @@
  }  
  $output .= '</table>  
       </div>';  
+
  echo $output;  
  ?>
