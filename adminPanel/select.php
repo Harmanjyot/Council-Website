@@ -1,7 +1,7 @@
 <?php  
  require "../php/conn.php";
  $output = '';  
- $sql = "SELECT * FROM eventlist ORDER BY SrNo DESC";  
+ $sql = "SELECT * FROM eventlist WHERE eventType='Sports' ORDER BY SrNo DESC";  
  $result = mysqli_query($conn, $sql);  
  $output .= '  
       <div class="table-responsive">  

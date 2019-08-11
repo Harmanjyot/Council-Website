@@ -6,6 +6,7 @@ $eventName = $_POST['cultural_name'];
 $eventDate = $_POST['cultural_date'];
 $eventTime = $_POST['cultural_time'];
 $eventDescription = $_POST['cultural_desc'];
+$eventCapacity = $_POST['cultural_limit'];
 $e=1;
 
 if($eventName == '') {
@@ -21,10 +22,10 @@ if($eventTime == '') {
 	$e=0;
 }
 if($e==1) {
-	$sql = "INSERT INTO culturaleventlist(eventName, eventDate, eventTime, eventDescription) VALUES('$eventName', '$eventDate', '$eventTime', '$eventDescription')";  
+	$sql = "INSERT INTO eventlist(eventName, eventDate, eventTime, eventDescription, eventType, eventCapacity) VALUES('$eventName', '$eventDate', '$eventTime', '$eventDescription', 'Cultural', '$eventCapacity')";  
 	if(mysqli_query($conn, $sql))  
 	{  
-    	echo 'Data Inserted';
+    	require "events_Cultural.php";
 	}  
 }
 

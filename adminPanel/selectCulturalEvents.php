@@ -1,6 +1,6 @@
 <?php
 require "../php/conn.php";
-$sql = "SELECT * FROM culturaleventlist";
+$sql = "SELECT * FROM eventlist WHERE eventType='Cultural'";
 $output = '';
 $result = mysqli_query($conn, $sql);
 
@@ -15,7 +15,8 @@ $output .= '
                      <th width="20%">Event Name</th>  
                      <th width="15%">Event Date</th>  
                      <th width="15%">Event Time</th>  
-                     <th width="30%">Event Description</th> 
+                     <th width="30%">Event Description</th>
+                     <th width="10%">Event Capacity</th> 
                      <th width="50%">Event Image</th>
                      <th width="50%">Image Preview</th>
                      <th width="10%">Delete</th>
@@ -30,6 +31,7 @@ if(mysqli_num_rows($result) > 0) {
     	        	<td><input type="text" size="10" value="'.$row["eventDate"].'" style="border: none" id="col2" readonly></td>
 	    	        <td><input type="text" size="10" value="'.$row["eventTime"].'" style="border: none" id="col3" readonly></td>
     	    	    <td><input type="text" value="'.$row["eventDescription"].'" style="border: none" id="col4" readonly></td>
+                <td><input type="text" name="cultural_limit" value="'.$row["eventCapacity"].'" style="border: none" readonly></td>
     	    	    <td><button type="button" name="update" class="btn btn-warning bt-xs update" id="'.$row["SrNo"].'">Upload</button></td>
     	    	    <td><img src="data:image/jpeg;base64,'.base64_encode($row['eventImage'] ).'" height="60" width="75"/></td>
     	            <td><input type="submit" name="delete_btn" data-id5="'.$row["SrNo"].'" class="btn btn-xs btn-danger btn_delete" value="x"></td>
@@ -56,6 +58,7 @@ if(mysqli_num_rows($result) > 0) {
             	<td><input type="text" name="cultural_date" style="border: none"></td>
 	            <td><input type="text" name="cultural_time" style="border: none"></td>
     	        <td><input type="text" name="cultural_desc" style="border: none"></td>
+              <td><input type="text" name="cultural_limit" style="border: none"></td>
         	    <td><input type="submit" name="btn_add" id="btn_add" class="btn btn-xs btn-success" value="+"></td>
 	        </tr>
         </form>
@@ -69,7 +72,10 @@ if(mysqli_num_rows($result) > 0) {
             	<td><input type="text" name="cultural_date" style="border: none"></td>
 	            <td><input type="text" name="cultural_time" style="border: none"></td>
     	        <td><input type="text" name="cultural_desc" style="border: none"></td>
-                <td><input type="submit" name="btn_add" id="btn_add" class="btn btn-xs btn-success" value="+"></td>
+              <td><input type="text" name="cultural_limit" style="border: none"></td>
+              <td></td>
+              <td></td>
+              <td><input type="submit" name="btn_add" id="btn_add" class="btn btn-xs btn-success" value="+"></td>
 			</tr>
 		</form>';  
 }  
@@ -128,7 +134,7 @@ echo $output;
 		            return false;
     		    } else {
         		    $.ajax({
-            		    url:"uploadCulturalImage.php",
+            		    url:"upload.php",
                 		method:"POST",
 	                	data:new FormData(this),
 	 		            contentType:false,
