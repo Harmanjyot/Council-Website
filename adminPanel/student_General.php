@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -42,7 +41,6 @@
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Technical</a></li>
           </ul>
         </li>
-
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student Details</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="student_General.php"><i class="icon fa fa-circle-o"></i> General </a></li>
@@ -50,6 +48,7 @@
             <li><a class="treeview-item" href="criteria_Incomplete.php"><i class="icon fa fa-circle-o"></i> Criteria Incomplete</a></li>
           </ul>
         </li>
+
         <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
@@ -59,7 +58,7 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1> Cultural Events</h1>
+          <h1> General Student Data</h1>
         </div>
       </div>
       <div class="row">
@@ -67,13 +66,12 @@
           <div class="tile">
             <div class="tile-body">
               <div class="container box">
-                 <h1 align="center">Add New Cultural Events</h1>
+                 <h1 align="center">Edit General Data</h1>
                  <br />
                  <div class="table-responsive">
-                    <div id = "live_data"><?php include 'selectCulturalEvents.php'; ?></div>
+                    <div id = "live_data"></div>
                  </div>
               </div>
-
     <div id="top_x_div" style="width: 900px; height: 500px;"></div>
 
             </div>
@@ -86,9 +84,48 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <!-- Google analytics script-->
+
+    <script>  
+ $(document).ready(function(){  
+      function fetch_data()  
+      {  
+           $.ajax({  
+                url:"selectBranchData.php",  
+                method:"POST",  
+                success:function(data){  
+                     $('#live_data').html(data);  
+                }  
+           });  
+      }  
+      fetch_data();  
+
+      function edit_data(id, text, column_name)  
+      {  
+           $.ajax({  
+                url:"editBranch.php",  
+                method:"POST",  
+                data:{id:id, text:text, column_name:column_name},  
+                dataType:"text",  
+                success:function(data){  
+                     alert(data);  
+                     fetch_data();
+                }  
+           });  
+      }  
+  
+      $(document).on('blur', '.branch_strength', function(){  
+           var id = $(this).data("id3");  
+           var branch_strength = $(this).text();  
+           edit_data(id, branch_strength, "branchStrength");  
+      }); 
+ 
+ });  
+ </script>
+
   </body>
 </html>
