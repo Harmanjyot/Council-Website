@@ -1,5 +1,6 @@
 <?php
- require "../php/conn.php" ;
+ Require "../php/conn.php";
+ session_start() ;
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +26,7 @@
     <script src="js/custom.js"></script>
 </head>
 <body>
+
 <header class="site-header">
     <div class="header-bar">
         <div class="container-fluid">
@@ -58,7 +60,19 @@
 
                 <div class="col-lg-3 d-none d-lg-block order-2 order-lg-3">
                     <div class="buy-tickets">
-                        <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
+                            <?php 
+                        if(isset($_SESSION['userId']))
+                                    {
+                                    echo '<form action="includes/logout.inc.php" method="post">
+                                    <button class = "btn gradient-bg" type="submit" name="logout-submit">Logout</button>
+                                    </form>';
+                                    }
+                                    else { ?>
+                                        <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
+                                        <?php
+                                    }
+                        ?>
+                        
                     </div><!-- .buy-tickets -->
                 </div><!-- .col -->
             </div><!-- .row -->

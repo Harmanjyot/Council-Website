@@ -73,13 +73,13 @@
 						</span>
 					</div>
 
-					<input type="text" value="Semester" style="border: none;" readonly>
-					<div class="wrap-input100 validate-input" data-validate = "Semester is required">
-						<select class="input100" name="sem">
+					<input type="text" value="Year" style="border: none;" readonly>
+					<div class="wrap-input100 validate-input" data-validate = "Year is required">
+						<select class="input100" name="year">
 							<option value="1">1</option>
+							<option value="2">2</option>
 							<option value="3">3</option>
-							<option value="5">5</option>
-							<option value="7">7</option>
+							<option value="4">4</option>
 						</select>
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
