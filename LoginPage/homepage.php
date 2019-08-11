@@ -95,7 +95,7 @@
                                         </div><!-- .countdown-holder -->
                                     </div><!-- .countdown -->
 
-                                    <h2 class="entry-title">1 We have the best events. <br>Participate Now!</h2>
+                                    <h2 class="entry-title">We have the best events. <br>Participate Now!</h2>
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
@@ -135,7 +135,7 @@
                                         </div><!-- .countdown-holder -->
                                     </div><!-- .countdown -->
 
-                                    <h2 class="entry-title">2 We have the best events. <br>Participate Now!</h2>
+                                    <h2 class="entry-title">We have the best events. <br>Participate Now!</h2>
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
@@ -175,7 +175,7 @@
                                         </div><!-- .countdown-holder -->
                                     </div><!-- .countdown -->
 
-                                    <h2 class="entry-title">3 We have the best events. <br>Participate Now!</h2>
+                                    <h2 class="entry-title">We have the best events. <br>Participate Now!</h2>
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
@@ -444,116 +444,118 @@
 
                 <div class="swiper-container homepage-regional-events-slider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+
+                        <?php
+                            $topLimit = 3;
+                            $sql = "SELECT * FROM eventList where eventType = 'Sports'";  
+                            $result = mysqli_query($conn, $sql); 
+                            if(mysqli_num_rows($result) > 0)  
+                            {  
+                                while($row = mysqli_fetch_array($result))  
+                                { 
+                                    $imageSponsor = base64_encode($row['eventImage'])
+                                    ?>
+                                    <div class="swiper-slide">
+                                        <figure>
+                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="250"/>
+
+                                            <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
+                                        </figure>
+
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><?php echo $row["eventName"]; ?></h2>
+                                        </div>
+
+                                        <div class="entry-footer">
+                                            <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
+                                        </div>
+                                    </div>
+
+                                <?php 
+                                } }
+
+                        ?>
+                        <!-- <div class="swiper-slide">
                             <figure>
                                 <img src="images/event-slider-1.jpg" alt="">
 
                                 <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
+                            </figure>
 
                             <div class="entry-header">
                                 <h2 class="entry-title">U2 Concert </h2>
-                            </div><!--- .entry-header -->
+                            </div>
 
                             <div class="entry-footer">
                                 <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
-                        </div><!-- .swiper-slide -->
+                            </div>
+                        </div>
 
                         <div class="swiper-slide">
                             <figure>
                                 <img src="images/event-slider-2.jpg" alt="">
 
                                 <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
+                            </figure>
 
                             <div class="entry-header">
                                 <h2 class="entry-title">Broadway Hit </h2>
-                            </div><!--- .entry-header -->
+                            </div>
 
                             <div class="entry-footer">
                                 <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
-                        </div><!-- .swiper-slide -->
+                            </div>
+                        </div>
 
                         <div class="swiper-slide">
                             <figure>
                                 <img src="images/event-slider-3.jpg" alt="">
 
                                 <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
+                            </figure>
 
                             <div class="entry-header">
                                 <h2 class="entry-title">Gallery Exibition</h2>
-                            </div><!--- .entry-header -->
+                            </div>
 
                             <div class="entry-footer">
                                 <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
-                        </div><!-- .swiper-slide -->
+                            </div>
+                        </div>
 
                         <div class="swiper-slide">
                             <figure>
                                 <img src="images/event-slider-4.jpg" alt="">
 
                                 <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
+                            </figure>
 
                             <div class="entry-header">
                                 <h2 class="entry-title">Art Gallery</h2>
-                            </div><!--- .entry-header -->
+                            </div>
 
                             <div class="entry-footer">
                                 <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
-                        </div><!-- .swiper-slide -->
+                            </div>
+                        </div>
 
                         <div class="swiper-slide">
                             <figure>
                                 <img src="images/event-slider-5.jpg" alt="">
 
                                 <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
+                            </figure>
 
                             <div class="entry-header">
                                 <h2 class="entry-title">Music Concert</h2>
-                            </div><!--- .entry-header -->
+                            </div>
 
                             <div class="entry-footer">
                                 <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
-                        </div><!-- .swiper-slide -->
+                            </div>
+                        </div> -->
 
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-6.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">EDM Festival</h2>
-                            </div><!--- .entry-header -->
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
-                        </div><!-- .swiper-slide -->
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-1.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure><!-- .hero-image -->
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">U2 Concert </h2>
-                            </div><!--- .entry-header -->
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div><!-- .entry-footer" -->
+                        
                         </div><!-- .swiper-slide -->
                     </div><!-- .swiper-wrapper -->
 
