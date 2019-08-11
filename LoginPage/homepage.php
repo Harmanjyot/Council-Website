@@ -446,8 +446,7 @@
                     <div class="swiper-wrapper">
 
                         <?php
-                            $topLimit = 3;
-                            $sql = "SELECT * FROM eventList where eventType = 'Sports'";  
+                            $sql = "SELECT * FROM eventList where eventType = 'Sports' LIMIT 3";  
                             $result = mysqli_query($conn, $sql); 
                             if(mysqli_num_rows($result) > 0)  
                             {  
@@ -457,7 +456,34 @@
                                     ?>
                                     <div class="swiper-slide">
                                         <figure>
-                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="250"/>
+                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
+
+                                            <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
+                                        </figure>
+
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><?php echo $row["eventName"]; ?></h2>
+                                        </div>
+
+                                        <div class="entry-footer">
+                                            <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
+                                        </div>
+                                    </div>
+
+                                <?php 
+                                } }
+
+                            $sql = "SELECT * FROM eventList where eventType = 'Cultural' LIMIT 3";  
+                            $result = mysqli_query($conn, $sql); 
+                            if(mysqli_num_rows($result) > 0)  
+                            {  
+                                while($row = mysqli_fetch_array($result))  
+                                { 
+                                    $imageSponsor = base64_encode($row['eventImage'])
+                                    ?>
+                                    <div class="swiper-slide">
+                                        <figure>
+                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
 
                                             <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
                                         </figure>
