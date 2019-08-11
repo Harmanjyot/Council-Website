@@ -58,7 +58,7 @@
 
                 <div class="col-lg-3 d-none d-lg-block order-2 order-lg-3">
                     <div class="buy-tickets">
-                        <a class="btn gradient-bg" href="index.php">Login</a>
+                        <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
                     </div><!-- .buy-tickets -->
                 </div><!-- .col -->
             </div><!-- .row -->
