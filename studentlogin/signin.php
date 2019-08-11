@@ -13,7 +13,7 @@ $password = $_POST['password'];
 $sql = "INSERT INTO studentslogindata(rollno, name, email, branch, semester, gender, password) VALUES('$rollno', '$name', '$email', '$branch', '$sem', '$gender', '$password')";
 		
 if (mysqli_query($conn, $sql)) {
-    require "studentlogin.php";
+   	require "studentlogin.php";
 } else {
 	echo "Error: " . $sql . "<br>" . $conn->error;
 }

@@ -35,7 +35,7 @@
 						Member Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate = "Name is required">
 						<input class="input100" type="text" name="name" placeholder="Name">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -43,7 +43,7 @@
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate = "Roll no is required">
 						<input class="input100" type="text" name="rollno" placeholder="Roll no">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
@@ -59,7 +59,7 @@
 						</span>
 					</div>
 					<input type="text" value="Branch" style="border: none;" readonly>
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate = "Branch is required">
 						<select class="input100" name="branch">
 							<option value="Comps">Comps</option>
 							<option value="IT">IT</option>
@@ -74,7 +74,7 @@
 					</div>
 
 					<input type="text" value="Semester" style="border: none;" readonly>
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate = "Semester is required">
 						<select class="input100" name="sem">
 							<option value="1">1</option>
 							<option value="3">3</option>
@@ -88,7 +88,7 @@
 					</div>
 
 					<input type="text" value="Gender" style="border: none;" readonly>
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" data-validate = "Gender is required">
 						<select class="input100" name="gender">
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
