@@ -1,3 +1,7 @@
+<?php
+ require "../php/conn.php" ;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,11 +95,11 @@
                                         </div><!-- .countdown-holder -->
                                     </div><!-- .countdown -->
 
-                                    <h2 class="entry-title">1 We have the best events. <br>Get your tiket now!</h2>
+                                    <h2 class="entry-title">1 We have the best events. <br>Participate Now!</h2>
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
-                                    <a class="btn gradient-bg" href="#">Order here</a>
+                                    <a class="btn gradient-bg" href="#">Register here</a>
                                 </div><!-- .entry-footer" -->
                             </div><!-- .col -->
                         </div><!-- .container -->
@@ -131,11 +135,11 @@
                                         </div><!-- .countdown-holder -->
                                     </div><!-- .countdown -->
 
-                                    <h2 class="entry-title">2 We have the best events. <br>Get your tiket now!</h2>
+                                    <h2 class="entry-title">2 We have the best events. <br>Participate Now!</h2>
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
-                                    <a class="btn gradient-bg" href="#">Order here</a>
+                                    <a class="btn gradient-bg" href="#">Register here</a>
                                 </div><!-- .entry-footer" -->
                             </div><!-- .col -->
                         </div><!-- .container -->
@@ -171,11 +175,11 @@
                                         </div><!-- .countdown-holder -->
                                     </div><!-- .countdown -->
 
-                                    <h2 class="entry-title">3 We have the best events. <br>Get your tiket now!</h2>
+                                    <h2 class="entry-title">3 We have the best events. <br>Participate Now!</h2>
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
-                                    <a class="btn gradient-bg" href="#">Order here</a>
+                                    <a class="btn gradient-bg" href="#">Register here</a>
                                 </div><!-- .entry-footer" -->
                             </div><!-- .col -->
                         </div><!-- .container -->
@@ -225,7 +229,7 @@
     </div>
 </div>
 
-<div class="homepage-featured-events">
+<!-- <div class="homepage-featured-events">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -335,9 +339,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="homepage-next-events">
+<!-- <div class="homepage-next-events">
     <div class="container">
         <div class="row">
             <div class="next-events-section-header">
@@ -420,22 +424,22 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="homepage-regional-events">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
-                    <h2 class="entry-title">Events in New York</h2>
+                    <h2 class="entry-title">Some Interesting Events</h2>
 
-                    <div class="select-location">
+<!--                     <div class="select-location">
                         <select>
                             <option>New York</option>
                             <option>California</option>
                             <option>South Carolina</option>
                         </select>
-                    </div>
+                    </div> -->
                 </header>
 
                 <div class="swiper-container homepage-regional-events-slider">
@@ -569,7 +573,26 @@
                     </header>
 
                     <div class="events-partners-logos flex flex-wrap justify-content-between align-items-center">
-                        <div class="event-partner-logo">
+
+                        <?php
+
+                            $sql = "SELECT * FROM sponsorData";  
+                            $result = mysqli_query($conn, $sql);  
+                            if(mysqli_num_rows($result) > 0)  
+                            {  
+                                while($row = mysqli_fetch_array($result))  
+                                { 
+                                    $imageSponsor = base64_encode($row['sponsorImage'])
+                                    ?>
+                                    <div class="event-partner-logo">
+                                        <a href="#"><img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="200" width="200"/></a>
+                                    </div>
+
+                                <?php 
+                                } }
+
+                        ?>
+                        <!-- <div class="event-partner-logo">
                             <a href="#"><img src="images/pixar.png" alt=""></a>
                         </div>
 
@@ -607,7 +630,7 @@
 
                         <div class="event-partner-logo">
                             <a href="#"><img src="images/the-pirate.png" alt=""></a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -616,7 +639,7 @@
     </div>
 </div>
 
-<div class="newsletter-subscribe">
+<!-- <div class="newsletter-subscribe">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -644,7 +667,7 @@
         </div>
     </div>
 </div>
-
+ -->
 <footer class="site-footer">
     <div class="container">
         <div class="row">

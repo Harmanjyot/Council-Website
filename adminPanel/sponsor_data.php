@@ -51,8 +51,6 @@
 
         <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
-        <li><a class="app-menu__item" href="sponsor_data.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Sponsor Data</span></a>
-        </li>
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
       </ul>
@@ -68,7 +66,7 @@
           <div class="tile">
             <div class="tile-body">
               <div class="container box">
-                 <h1 align="center">Add Sponsors</h1>
+                 <h1 align="center">Add New Sport Events</h1>
                  <br />
                  <div class="table-responsive">
                     <div id = "live_data"></div>
@@ -97,7 +95,7 @@
       function fetch_data()  
       {  
            $.ajax({  
-                url:"select.php",  
+                url:"selectSponsor.php",  
                 method:"POST",  
                 success:function(data){  
                      $('#live_data').html(data);  
@@ -106,41 +104,23 @@
       }  
       fetch_data();  
       $(document).on('click', '#btn_add', function(){  
-           var sport_name = $('#sport_name').text();  
-           var sport_date = $('#sport_date').text();  
-           var sport_time = $('#sport_time').text(); 
-           var sport_desc = $('#sport_desc').text(); 
-           var sport_limit = $('#sport_limit').text();
-           var eventType = "Sports";
-           if(sport_name == '')  
+           var sponsor_name = $('#sponsor_name').text();  
+           var sponsor_link = $('#sponsor_link').text();  
+
+           if(sponsor_name == '')  
            {  
-                alert("Enter sport_name");  
+                alert("Enter sponsor_name");  
                 return false;  
            }  
-           if(sport_date == '')  
+           if(sponsor_link == '')  
            {  
-                alert("Enter sport_date");  
-                return false;  
-           } 
-           if(sport_time == '')  
-           {  
-                alert("Enter sport_time");  
-                return false;  
-           }  
-           if(sport_desc == '')  
-           {  
-                alert("Enter sport_desc");  
-                return false;  
-           }  
-           if(sport_limit == '')  
-           {  
-                alert("Enter sport_limit");  
+                alert("Enter sponsor_link");  
                 return false;  
            }
            $.ajax({  
-                url:"insert.php",  
+                url:"insertSponsor.php",  
                 method:"POST",  
-                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, eventType:eventType, sport_limit:sport_limit},  
+                data:{sponsor_link:sponsor_link, sponsor_name:sponsor_name},  
                 dataType:"text",  
                 success:function(data)  
                 {  
@@ -192,7 +172,7 @@
          else
          {
           $.ajax({
-           url:"upload.php",
+           url:"uploadSponsor.php",
            method:"POST",
            data:new FormData(this),
            contentType:false,
@@ -213,7 +193,7 @@
       function edit_data(id, text, column_name)  
       {  
            $.ajax({  
-                url:"edit.php",  
+                url:"editSponsor.php",  
                 method:"POST",  
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
@@ -223,37 +203,23 @@
                 }  
            });  
       }  
-      $(document).on('blur', '.sport_name', function(){  
+      $(document).on('blur', '.sponsor_name', function(){  
            var id = $(this).data("id1");  
-           var sport_name = $(this).text();  
-           edit_data(id, sport_name, "eventName");  
+           var sponsor_name = $(this).text();  
+           edit_data(id, sponsor_name, "sponsorName");  
       });  
-      $(document).on('blur', '.sport_desc', function(){  
-           var id = $(this).data("id4");  
-           var sport_desc = $(this).text();  
-           edit_data(id,sport_desc, "eventDescription");  
-      });  
-      $(document).on('blur', '.sport_time', function(){  
-           var id = $(this).data("id3");  
-           var sport_time = $(this).text();  
-           edit_data(id, sport_time, "eventTime");  
-      });  
-      $(document).on('blur', '.sport_date', function(){  
+      $(document).on('blur', '.sponsor_link', function(){  
            var id = $(this).data("id2");  
-           var sport_date = $(this).text();  
-           edit_data(id,sport_date, "eventDate");  
-      });   
-      $(document).on('blur', '.sport_limit', function(){  
-           var id = $(this).data("id6");  
-           var sport_limit = $(this).text();  
-           edit_data(id, sport_limit, "eventCapacity");  
-      }); 
+           var sponsor_link = $(this).text();  
+           edit_data(id,sponsor_link, "sponsorLink");  
+      });  
+
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id5");  
            if(confirm("Are you sure you want to delete this?"))  
            {  
                 $.ajax({  
-                     url:"delete.php",  
+                     url:"deleteSponsor.php",  
                      method:"POST",  
                      data:{id:id},  
                      dataType:"text",  
