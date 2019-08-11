@@ -1,6 +1,3 @@
-<?php
-  require "../php/conn.php";
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,15 +43,15 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="events_Cultural.php"><i class="icon fa fa-circle-o"></i> Cultural</a></li>
             <li><a class="treeview-item" href="events_Sports.php"><i class="icon fa fa-circle-o"></i> Sports</a></li>
-            <li><a class="treeview-item" href="events_Technical.php"><i class="icon fa fa-circle-o"></i> Technical</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Technical</a></li>
           </ul>
         </li>
 
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student  Details</span></a>
+        <li><a class="app-menu__item" href="studentDetails.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student  Details</span></a>
         </li>
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
+        <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
       </ul>
     </aside>
@@ -111,6 +108,7 @@
            var sport_date = $('#sport_date').text();  
            var sport_time = $('#sport_time').text(); 
            var sport_desc = $('#sport_desc').text(); 
+           var sport_limit = $('#sport_limit').text();
            var eventType = "Sports";
            if(sport_name == '')  
            {  
@@ -132,10 +130,15 @@
                 alert("Enter sport_desc");  
                 return false;  
            }  
+           if(sport_limit == '')  
+           {  
+                alert("Enter sport_limit");  
+                return false;  
+           }
            $.ajax({  
                 url:"insert.php",  
                 method:"POST",  
-                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, eventType:eventType},  
+                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, eventType:eventType, sport_limit:sport_limit},  
                 dataType:"text",  
                 success:function(data)  
                 {  
@@ -238,6 +241,11 @@
            var sport_date = $(this).text();  
            edit_data(id,sport_date, "eventDate");  
       });   
+      $(document).on('blur', '.sport_limit', function(){  
+           var id = $(this).data("id6");  
+           var sport_limit = $(this).text();  
+           edit_data(id, sport_limit, "eventCapacity");  
+      }); 
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id5");  
            if(confirm("Are you sure you want to delete this?"))  
