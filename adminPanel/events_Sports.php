@@ -24,11 +24,6 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body class="app sidebar-mini rtl">
-
-
-
-
-
     <!-- Navbar-->
     <header class="app-header"><a class="app-header__logo" href="index.html"></a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
@@ -46,9 +41,14 @@
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Technical</a></li>
           </ul>
         </li>
-
-        <li><a class="app-menu__item" href="studentDetails.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student  Details</span></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student Details</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="student_General.php"><i class="icon fa fa-circle-o"></i> General </a></li>
+            <li><a class="treeview-item" href="criteria_Full.php"><i class="icon fa fa-circle-o"></i> Criteria Fulfilled </a></li>
+            <li><a class="treeview-item" href="criteria_Incomplete.php"><i class="icon fa fa-circle-o"></i> Criteria Incomplete</a></li>
+          </ul>
         </li>
+
         <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
