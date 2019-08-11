@@ -60,7 +60,7 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1> General Student Data</h1>
+          <h1> Sports Events</h1>
         </div>
       </div>
       <div class="row">
@@ -68,7 +68,7 @@
           <div class="tile">
             <div class="tile-body">
               <div class="container box">
-                 <h1 align="center">Edit General Data</h1>
+                 <h1 align="center">Add New Sport Events</h1>
                  <br />
                  <div class="table-responsive">
                     <div id = "live_data"></div>
@@ -97,7 +97,7 @@
       function fetch_data()  
       {  
            $.ajax({  
-                url:"selectBranchData.php",  
+                url:"selectSponsor.php",  
                 method:"POST",  
                 success:function(data){  
                      $('#live_data').html(data);  
@@ -105,11 +105,97 @@
            });  
       }  
       fetch_data();  
+      $(document).on('click', '#btn_add', function(){  
+           var sponsor_name = $('#sponsor_name').text();  
+           var sponsor_link = $('#sponsor_link').text();  
+
+           if(sponsor_name == '')  
+           {  
+                alert("Enter sponsor_name");  
+                return false;  
+           }  
+           if(sponsor_link == '')  
+           {  
+                alert("Enter sponsor_link");  
+                return false;  
+           }
+           $.ajax({  
+                url:"insertSponsor.php",  
+                method:"POST",  
+                data:{sponsor_link:sponsor_link, sponsor_name:sponsor_name},  
+                dataType:"text",  
+                success:function(data)  
+                {  
+                     alert(data);  
+                     fetch_data();  
+                }  
+           })  
+      });  
+
+       $(document).on('click', '.update', function(){
+        $('#image_id').val($(this).attr("id"));
+        $('#action').val("update");
+        $('.modal-title').text("Update Image");
+        $('#insert').val("Update");
+        $('#imageModal').modal("show");
+       });
+      //     $(document).on('click', '#uploadImage', function(){  
+      //      var sport_name = $('#sport_name').text();  
+           
+      //      $.ajax({  
+      //           url:"upload.php",  
+      //           method:"POST",  
+      //           data:{sport_name: sport_name, filename:filename},  
+      //           dataType:"text",  
+      //           success:function(data)  
+      //           {  
+      //                alert(data);  
+      //                fetch_data();  
+      //           }  
+      //      })  
+      // }); 
+       $('#image_form').submit(function(event){
+        event.preventDefault();
+        var image_name = $('#image').val();
+        if(image_name == '')
+        {
+         alert("Please Select Image");
+         return false;
+        }
+        else
+        {
+         var extension = $('#image').val().split('.').pop().toLowerCase();
+         if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+         {
+          alert("Invalid Image File");
+          $('#image').val('');
+          return false;
+         }
+         else
+         {
+          $.ajax({
+           url:"uploadSponsor.php",
+           method:"POST",
+           data:new FormData(this),
+           contentType:false,
+           processData:false,
+           success:function(data)
+           {
+            alert(data);
+            fetch_data();
+            $('#image_form')[0].reset();
+            $('#imageModal').modal('hide');
+           }
+          });
+         }
+        }
+       });
+
 
       function edit_data(id, text, column_name)  
       {  
            $.ajax({  
-                url:"editBranch.php",  
+                url:"editSponsor.php",  
                 method:"POST",  
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
@@ -119,15 +205,58 @@
                 }  
            });  
       }  
-  
-      $(document).on('blur', '.branch_strength', function(){  
-           var id = $(this).data("id3");  
-           var branch_strength = $(this).text();  
-           edit_data(id, branch_strength, "branchStrength");  
-      }); 
- 
+      $(document).on('blur', '.sponsor_name', function(){  
+           var id = $(this).data("id1");  
+           var sponsor_name = $(this).text();  
+           edit_data(id, sponsor_name, "sponsorName");  
+      });  
+      $(document).on('blur', '.sponsor_link', function(){  
+           var id = $(this).data("id2");  
+           var sponsor_link = $(this).text();  
+           edit_data(id,sponsor_link, "sponsorLink");  
+      });  
+
+      $(document).on('click', '.btn_delete', function(){  
+           var id=$(this).data("id5");  
+           if(confirm("Are you sure you want to delete this?"))  
+           {  
+                $.ajax({  
+                     url:"deleteSponsor.php",  
+                     method:"POST",  
+                     data:{id:id},  
+                     dataType:"text",  
+                     success:function(data){  
+                          alert(data);  
+                          fetch_data();  
+                     }  
+                });  
+           }  
+      });  
  });  
  </script>
 
   </body>
 </html>
+
+<div id="imageModal" class="modal fade" role="dialog">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal">&times;</button>
+     <h4 class="modal-title">Add Image</h4>
+   </div>
+   <div class="modal-body">
+    <form id="image_form" method="post" enctype="multipart/form-data">
+     <p><label>Select Image</label>
+     <input type="file" name="image" id="image" /></p><br />
+     <input type="hidden" name="action" id="action" value="insert" />
+     <input type="hidden" name="image_id" id="image_id" />
+     <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+     </form>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+   </div>
+  </div>
+ </div>

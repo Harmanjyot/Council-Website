@@ -51,6 +51,8 @@
 
         <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
+        <li><a class="app-menu__item" href="sponsor_data.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Sponsor Data</span></a>
+        </li>
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
       </ul>
@@ -66,7 +68,7 @@
           <div class="tile">
             <div class="tile-body">
               <div class="container box">
-                 <h1 align="center">Add New Sport Events</h1>
+                 <h1 align="center">Add Sport Events</h1>
                  <br />
                  <div class="table-responsive">
                     <div id = "live_data"></div>
@@ -109,7 +111,7 @@
            var sport_time = $('#sport_time').text(); 
            var sport_desc = $('#sport_desc').text(); 
            var sport_limit = $('#sport_limit').text();
-           var eventType = "Sports";
+           var event_Type = "Sports";
            if(sport_name == '')  
            {  
                 alert("Enter sport_name");  
@@ -138,7 +140,7 @@
            $.ajax({  
                 url:"insert.php",  
                 method:"POST",  
-                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, eventType:eventType, sport_limit:sport_limit},  
+                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, event_Type:event_Type, sport_limit:sport_limit},  
                 dataType:"text",  
                 success:function(data)  
                 {  
