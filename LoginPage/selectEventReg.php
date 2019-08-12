@@ -35,7 +35,7 @@
                 ';  
       }  
       $output .= '</table></div> 
-      <button type="button" name="registerEvent" class="btn btn-default" data-dismiss="modal">Register</button>
+      <button type="button" name="registerEvent" class="btn btn-default registerEvent">Register</button>
       ';  
       echo $output;  
  

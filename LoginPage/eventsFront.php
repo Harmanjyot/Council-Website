@@ -646,6 +646,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     
                 </div>  
                 <div class="modal-footer">  
+                    <!-- <button type="button" name="registerEvent" class="btn btn-default registerEvent">Register</button> -->
                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
                 </div>  
            </div>  
@@ -664,6 +665,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 success:function(data) {
                     $('#event_detail').html(data);
                     $('#dataModal').modal("show");
+                }
+            });
+        });
+
+        $('.registerEvent').click(function(){
+            var userid = '<?php echo $userID ?>' ;
+            var event_id = $(this).attr("id");
+            $.ajax ({
+                url: "completeReg.php",
+                method: "post",
+                data: {event_id:event_id, userid:userid},
+                success:function(data) {
+                    alert(data);  
+                    $('#dataModal').modal("hide");
+                    alert(data);  
+
                 }
             });
         });
