@@ -1,16 +1,11 @@
-<?php
-
-require "../php/conn.php";
-	
-$srno = $_POST['id'];
-$eventName = $_POST['cultural_name'];
-$eventDate = $_POST['cultural_date'];
-$eventTime = $_POST['cultural_time'];
-$eventDescription = $_POST['cultural_desc'];
-
-$sql = "UPDATE eventlist SET eventName='$eventName',eventDate='$eventDate',eventTime='$eventTime',eventDescription='$eventDescription' WHERE SrNo = '$srno'";
-if(mysqli_query($conn, $sql)) {
-    require 'events_Cultural.php';
-}
-
-?>
+<?php  
+ require "../php/conn.php";
+ $id = $_POST["id"];  
+ $text = $_POST["text"];  
+ $column_name = $_POST["column_name"];  
+ $sql = "UPDATE eventlist SET ".$column_name."='".$text."' WHERE SrNo='".$id."'";  
+ if(mysqli_query($conn, $sql))  
+ {  
+      echo 'Data Updated';  
+ }  
+ ?>
