@@ -25,6 +25,180 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Strength', 'Registered', 'Criteria Fulfilled'],
+          <?php
+          $branch = "Computers";
+          $sql = "select * from branchData where branchName='$branch'";
+          $result = mysqli_query($conn, $sql);
+          if ($result->num_rows >0)
+          {
+            while($row = $result->fetch_assoc())
+            {
+              echo "['".$row["branchYear"]."', ".$row["branchStrength"].", ".$row["branchRegistration"].", ".$row["branchCriteria"]."],";
+            }
+          }
+          ?>
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Registrations Computers'
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_computer'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+        <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Strength', 'Registered', 'Criteria Fulfilled'],
+          <?php
+          $branch = "Electrical";
+          $sql = "select * from branchData where branchName='$branch'";
+          $result = mysqli_query($conn, $sql);
+          if ($result->num_rows >0)
+          {
+            while($row = $result->fetch_assoc())
+            {
+              echo "['".$row["branchYear"]."', ".$row["branchStrength"].", ".$row["branchRegistration"].", ".$row["branchCriteria"]."],";
+            }
+          }
+          ?>
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Registrations Electrical'
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_electrical'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Strength', 'Registered', 'Criteria Fulfilled'],
+          <?php
+          $branch = "EXTC";
+          $sql = "select * from branchData where branchName='$branch'";
+          $result = mysqli_query($conn, $sql);
+          if ($result->num_rows >0)
+          {
+            while($row = $result->fetch_assoc())
+            {
+              echo "['".$row["branchYear"]."', ".$row["branchStrength"].", ".$row["branchRegistration"].", ".$row["branchCriteria"]."],";
+            }
+          }
+          ?>
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Registrations EXTC'
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_extc'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+        <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Strength', 'Registered', 'Criteria Fulfilled'],
+          <?php
+          $branch = "IT";
+          $sql = "select * from branchData where branchName='$branch'";
+          $result = mysqli_query($conn, $sql);
+          if ($result->num_rows >0)
+          {
+            while($row = $result->fetch_assoc())
+            {
+              echo "['".$row["branchYear"]."', ".$row["branchStrength"].", ".$row["branchRegistration"].", ".$row["branchCriteria"]."],";
+            }
+          }
+          ?>
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Registrations IT'
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_it'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+    </script>
+        <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Strength', 'Registered', 'Criteria Fulfilled'],
+          <?php
+          $branch = "Mechanical";
+          $sql = "select * from branchData where branchName='$branch'";
+          $result = mysqli_query($conn, $sql);
+          if ($result->num_rows >0)
+          {
+            while($row = $result->fetch_assoc())
+            {
+              echo "['".$row["branchYear"]."', ".$row["branchStrength"].", ".$row["branchRegistration"].", ".$row["branchCriteria"]."],";
+            }
+          }
+          ?>
+
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Registrations Mechanical'
+          },
+          bars: 'horizontal' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_mechanical'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -41,15 +215,22 @@
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="events_Cultural.php"><i class="icon fa fa-circle-o"></i> Cultural</a></li>
             <li><a class="treeview-item" href="events_Sports.php"><i class="icon fa fa-circle-o"></i> Sports</a></li>
-            <li><a class="treeview-item" href="events_Technical.php"><i class="icon fa fa-circle-o"></i> Technical</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Technical</a></li>
+          </ul>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student Details</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="student_General.php"><i class="icon fa fa-circle-o"></i> General </a></li>
+            <li><a class="treeview-item" href="criteria_Full.php"><i class="icon fa fa-circle-o"></i> Criteria Fulfilled </a></li>
+            <li><a class="treeview-item" href="criteria_Incomplete.php"><i class="icon fa fa-circle-o"></i> Criteria Incomplete</a></li>
           </ul>
         </li>
 
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Student  Details</span></a>
+        <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
+        <li><a class="app-menu__item" href="sponsor_data.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Sponsor Data</span></a>
         </li>
-        <li><a class="app-menu__item" href="attendance.php"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
       </ul>
     </aside>
@@ -62,10 +243,13 @@
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
-            <div class="tile-body">
-              
-    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
-
+            <div class="tile-body" style="overflow: hidden;">
+                <div id="barchart_computer" style="width: 750px; height: 500px;float: left;"></div> 
+                <div id="barchart_electrical" style="width: 750px; height: 500px;float: right;"></div>
+                <div id="barchart_mechanical" style="width: 750px; height: 500px;float: left;"></div>
+                <div id="barchart_extc" style="width: 750px; height: 500px;float: right;"></div>
+                <div id="barchart_it" style="width: 750px; height: 500px;float: left;"></div>
+              </div>              
             </div>
           </div>
         </div>
