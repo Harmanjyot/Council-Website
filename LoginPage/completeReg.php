@@ -11,7 +11,7 @@ require "../php/conn.php";
  $data = mysqli_fetch_assoc($result);
  $rowCount = $data['total'];
  	if ($capacity > $rowCount) {
- 		$query = "INSERT INTO eventRegistrations(studentID, eventID) VALUES ('".$_POST["userid"]."', '".$event_id."')";
+ 		$query = "INSERT INTO eventRegistrations(studentID, studentRoll, eventID) VALUES ('".$_POST["userid"]."', '".$_POST["userroll"]."' , '".$event_id."')";
  		$result = mysqli_query($conn, $query);
  		echo "Registration completed";
  	}

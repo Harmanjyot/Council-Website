@@ -69,7 +69,7 @@
                                     <button class = "btn gradient-bg" type="submit" name="logout-submit">Logout</button>
                                     </form> </div></div>
                                     <?php
-                                        $userID = $_SESSION["userRoll"]; 
+                                        $userID = $_SESSION["userId"]; 
                                     }
                                     else { ?>
                                         <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>

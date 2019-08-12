@@ -69,7 +69,8 @@
                                     <button class = "btn gradient-bg" type="submit" name="logout-submit">Logout</button>
                                     </form> </div></div>
                                     <?php
-                                        $userID = $_SESSION["userRoll"]; 
+                                        $userID = $_SESSION["userId"]; 
+                                        $userRoll = $_SESSION["userRoll"];
                                     }
                                     else { ?>
                                         <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
@@ -676,11 +677,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         $('#image_form').submit(function(event){
         event.preventDefault();
           var userid = '<?php echo $userID ?>' ;
+          var userroll = '<?php echo $userRoll ?>' ;
           var event_name = $('.event_name').text();
           $.ajax({
            url:"completeReg.php",
            method:"POST",
-           data:{userid:userid, event_name:event_name},
+           data:{userid:userid, event_name:event_name, userroll:userroll},
            success:function(data)
            {
             alert(data);
