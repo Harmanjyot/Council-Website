@@ -647,6 +647,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 </div>  
                 <div class="modal-footer">  
                     <!-- <button type="button" name="registerEvent" class="btn btn-default registerEvent">Register</button> -->
+                          <form id="image_form" method="post" enctype="multipart/form-data"> 
+        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+      </form>
                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
                 </div>  
            </div>  
@@ -669,20 +672,24 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             });
         });
 
-        $('.registerEvent').click(function(){
-            var userid = '<?php echo $userID ?>' ;
-            var event_id = $(this).attr("id");
-            $.ajax ({
-                url: "completeReg.php",
-                method: "post",
-                data: {event_id:event_id, userid:userid},
-                success:function(data) {
-                    alert(data);  
-                    $('#dataModal').modal("hide");
-                    alert(data);  
 
-                }
-            });
+        $('#image_form').submit(function(event){
+        event.preventDefault();
+          var userid = '<?php echo $userID ?>' ;
+          var event_name = $('.event_name').text();
+          $.ajax({
+           url:"completeReg.php",
+           method:"POST",
+           data:{userid:userid, event_name:event_name},
+           success:function(data)
+           {
+            alert(data);
+            $('#dataModal').modal('hide');
+          }
+         });
         });
+
+
+
     });
 </script>

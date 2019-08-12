@@ -1,10 +1,6 @@
 <?php
 require_once 'phpqrcode/qrlib.php';
-
-$conn = mysqli_connect('localhost' , 'root' , '' ,'fest');
-if($conn-> connect_error) {
-	die("Connection failed:".$conn-> connect_error);
-}
+require "../php/conn.php";
 
 $sql = "SELECT studentID FROM studentcriteria WHERE criteriaStatus = '1'";
 $result = $conn-> query($sql);

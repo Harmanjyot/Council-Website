@@ -12,8 +12,8 @@
       {  
            $output .= '  
                 <tr>  
-                     <td width="30%"><label><b>Event Name</b></label></td>  
-                     <td width="70%">'.$row["eventName"].'</td> 
+                     <td width="30%" ><label><b>Event Name</b></label></td>  
+                     <td width="70%" class = "event_name" data-id1="'.$row["SrNo"].'">'.$row["eventName"].'</td> 
                      <td rowspan="5"> <img src="data:image/jpeg;base64,'.base64_encode($row['eventImage'] ).'" height="400" width="300" /> </td> 
                 </tr>  
                 <tr>  
@@ -34,8 +34,8 @@
                 </tr>  
                 ';  
       }  
-      $output .= '</table></div> 
-      <button type="button" name="registerEvent" class="btn btn-default registerEvent">Register</button>
+      $output .= '</table></div>
+
       ';  
       echo $output;  
  
