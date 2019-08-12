@@ -1,6 +1,7 @@
 <?php
 // Include the database configuration file
 include '../php/conn.php';
+
 if($_POST["action"] == "update")
  {
   $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));

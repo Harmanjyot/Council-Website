@@ -23,7 +23,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <script src="js/custom.js"></script>
 </head>
 <body>
 
@@ -41,7 +40,7 @@
 
                 <div class="col-2 col-lg-7 order-3 order-lg-2">
                     <nav class="site-navigation">
-                        <div class="hamburger-menu d-lg-none">
+                        <div class="hamburger-menu d-lg-none fa fas fa-bars">
                             <span></span>
                             <span></span>
                             <span></span>
@@ -49,11 +48,11 @@
                         </div><!-- .hamburger-menu -->
 
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="eventsFront.php">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Home</a></li>
+                            <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li>
+                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Events</a></li>
+                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li>
+                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
                         </ul>
                     </nav><!-- .site-navigation -->
                 </div><!-- .col -->
@@ -63,6 +62,7 @@
                             <?php 
                         if(isset($_SESSION['userId']))
                                     {
+                                        $userID = $_SESSION["userRoll"];
                                     echo '<form action="includes/logout.inc.php" method="post">
                                     <button class = "btn gradient-bg" type="submit" name="logout-submit">Logout</button>
                                     </form>';
@@ -79,7 +79,7 @@
         </div><!-- .container-fluid -->
     </div><!-- .header-bar -->
 
-    <div class="swiper-container hero-slider">
+    <!-- <div class="swiper-container hero-slider"> --><!-- 
         <div class="swiper-wrapper">
             <div class="swiper-slide" data-date="2018/05/01" style="background: url('images/header-bg.jpg') no-repeat">
                 <div class="hero-content">
@@ -91,35 +91,35 @@
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dday"></span>
                                             <label>Days</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dhour"></span>
                                             <label>Hours</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dmin"></span>
                                             <label>Minutes</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dsec"></span>
                                             <label>Seconds</label>
-                                        </div><!-- .countdown-holder -->
-                                    </div><!-- .countdown -->
+                                        </div>
+                                    </div>
 
                                     <h2 class="entry-title">We have the best events. <br>Participate Now!</h2>
-                                </div><!--- .entry-header -->
+                                </div>
 
                                 <div class="entry-footer">
                                     <a class="btn gradient-bg" href="#">Register here</a>
-                                </div><!-- .entry-footer" -->
-                            </div><!-- .col -->
-                        </div><!-- .container -->
-                    </div><!-- .hero-content -->
-                </div><!-- .swiper-slide -->
-            </div><!-- .swiper-wrapper -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="swiper-slide" data-date="2019/05/01" style="background: url('images/football-1.jpg') no-repeat">
                 <div class="hero-content">
@@ -131,35 +131,34 @@
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dday"></span>
                                             <label>Days</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dhour"></span>
                                             <label>Hours</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dmin"></span>
                                             <label>Minutes</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dsec"></span>
                                             <label>Seconds</label>
-                                        </div><!-- .countdown-holder -->
-                                    </div><!-- .countdown -->
+                                        </div>
+                                    </div>
 
                                     <h2 class="entry-title">We have the best events. <br>Participate Now!</h2>
-                                </div><!--- .entry-header -->
-
+                                </div>
                                 <div class="entry-footer">
                                     <a class="btn gradient-bg" href="#">Register here</a>
-                                </div><!-- .entry-footer" -->
-                            </div><!-- .col -->
-                        </div><!-- .container -->
-                    </div><!-- .hero-content -->
-                </div><!-- .swiper-slide -->
-            </div><!-- .swiper-wrapper -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="swiper-slide" data-date="2020/05/01" style="background: url('images/football.jpg') no-repeat">
                 <div class="hero-content">
@@ -171,41 +170,41 @@
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dday"></span>
                                             <label>Days</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dhour"></span>
                                             <label>Hours</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dmin"></span>
                                             <label>Minutes</label>
-                                        </div><!-- .countdown-holder -->
+                                        </div>
 
                                         <div class="countdown-holder flex align-items-baseline">
                                             <span class="dsec"></span>
                                             <label>Seconds</label>
-                                        </div><!-- .countdown-holder -->
-                                    </div><!-- .countdown -->
+                                        </div>
+                                    </div>
 
                                     <h2 class="entry-title">We have the best events. <br>Participate Now!</h2>
-                                </div><!--- .entry-header -->
+                                </div>
 
                                 <div class="entry-footer">
                                     <a class="btn gradient-bg" href="#">Register here</a>
-                                </div><!-- .entry-footer" -->
-                            </div><!-- .col -->
-                        </div><!-- .container -->
-                    </div><!-- .hero-content -->
-                </div><!-- .swiper-slide -->
-            </div><!-- .swiper-wrapper -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Add Pagination -->
+        
         <div class="swiper-pagination"></div>
 
-        <!-- Add Arrows -->
+        
         <div class="swiper-button-next flex justify-content-center align-items-center">
             <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
         </div>
@@ -213,10 +212,10 @@
         <div class="swiper-button-prev flex justify-content-center align-items-center">
             <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
         </div>
-    </div><!-- .swiper-container -->
-</header><!-- .site-header -->
+     --><!-- </div> -->
+</header>
 
-<div class="homepage-info-section">
+<!-- <div class="homepage-info-section"> --><!-- 
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-4 col-lg-5">
@@ -241,7 +240,7 @@
             </div>
         </div>
     </div>
-</div>
+ --><!-- </div> -->
 
 <!-- <div class="homepage-featured-events">
     <div class="container">
@@ -440,27 +439,19 @@
     </div>
 </div> -->
 
-<div class="homepage-regional-events">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
-                    <h2 class="entry-title">Some Interesting Events</h2>
-
-<!--                     <div class="select-location">
-                        <select>
-                            <option>New York</option>
-                            <option>California</option>
-                            <option>South Carolina</option>
-                        </select>
-                    </div> -->
-                </header>
-
-                <div class="swiper-container homepage-regional-events-slider">
+<div class="homepage-regional-events" style="overflow: hidden;" >
+    <div class="container" style="float: left; position: relative; top: -150px;">
+        <div class="row"  style="width: 140%;">
+            <div class="col-12" style="width: 120%;">
+                <div class="swiper-container homepage-regional-events-slider" style="width: 120%;">
+                    <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
+                        <h2 class="entry-title" style="position: relative; left: 10%;">Cultural Events</h2>
+                    </header>
                     <div class="swiper-wrapper">
 
                         <?php
-                            $sql = "SELECT * FROM eventList where eventType = 'Sports' LIMIT 3";  
+
+                            $sql = "SELECT * FROM eventList where eventType = 'Cultural'";  
                             $result = mysqli_query($conn, $sql); 
                             if(mysqli_num_rows($result) > 0)  
                             {  
@@ -469,37 +460,10 @@
                                     $imageSponsor = base64_encode($row['eventImage'])
                                     ?>
                                     <div class="swiper-slide">
-                                        <figure>
-                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
+                                        <figure >
+                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="400" width="300"/>
 
-                                            <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                                        </figure>
-
-                                        <div class="entry-header">
-                                            <h2 class="entry-title"><?php echo $row["eventName"]; ?></h2>
-                                        </div>
-
-                                        <div class="entry-footer">
-                                            <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
-                                        </div>
-                                    </div>
-
-                                <?php 
-                                } }
-
-                            $sql = "SELECT * FROM eventList where eventType = 'Cultural' LIMIT 3";  
-                            $result = mysqli_query($conn, $sql); 
-                            if(mysqli_num_rows($result) > 0)  
-                            {  
-                                while($row = mysqli_fetch_array($result))  
-                                { 
-                                    $imageSponsor = base64_encode($row['eventImage'])
-                                    ?>
-                                    <div class="swiper-slide">
-                                        <figure>
-                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
-
-                                            <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
+                                            <button type="button" name="viewEvent" class="event-overlay-link flex justify-content-center align-items-center viewEvent" id = <?php echo $row["SrNo"]; ?>>+</button>
                                         </figure>
 
                                         <div class="entry-header">
@@ -515,171 +479,71 @@
                                 } }
 
                         ?>
-                        <!-- <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-1.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">U2 Concert </h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-2.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Broadway Hit </h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-3.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Gallery Exibition</h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-4.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Art Gallery</h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-5.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Music Concert</h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div> -->
-
-                        
                         </div><!-- .swiper-slide -->
                     </div><!-- .swiper-wrapper -->
 
                     <!-- Add Arrows -->
+                    <div class="swiper-pagination"></div>
                     <div class="swiper-button-next flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
                     </div>
 
                     <div class="swiper-button-prev flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
-                    </div>
+                    </div> </div> </div>
                 </div><!-- .swiper-container -->
-
-                <div class="events-partners">
-                    <header class="entry-header">
-                        <h2 class="entry-title">Partners</h2>
+                <br>
+                <br>
+                <div class="container" style="float: left; position: relative; top: -200px;">
+                <div class="row"  style="width: 140%;">
+                <div class="col-12" style="width: 120%;">
+                <div class="swiper-container homepage-regional-events-slider" style="width: 120%;">
+                    <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
+                        <h2 class="entry-title" style="position: relative; left: 10%;">Sports Events</h2>
                     </header>
-
-                    <div class="events-partners-logos flex flex-wrap justify-content-between align-items-center">
+                    <div class="swiper-wrapper">
 
                         <?php
-
-                            $sql = "SELECT * FROM sponsorData";  
-                            $result = mysqli_query($conn, $sql);  
+                            $sql = "SELECT * FROM eventList where eventType = 'Sports' OR eventType= 'Technical'";  
+                            $result = mysqli_query($conn, $sql); 
                             if(mysqli_num_rows($result) > 0)  
                             {  
                                 while($row = mysqli_fetch_array($result))  
                                 { 
-                                    $imageSponsor = base64_encode($row['sponsorImage'])
+                                    $imageSponsor = base64_encode($row['eventImage'])
                                     ?>
-                                    <div class="event-partner-logo">
-                                        <a href="#"><img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="200" width="200"/></a>
+                                    <div class="swiper-slide">
+                                        <figure>
+                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="400" width="300"/>
+
+                                            <button type="button" name="viewEvent" class="event-overlay-link flex justify-content-center align-items-center viewEvent" id = <?php echo $row["SrNo"]; ?>>+</button>
+                                        </figure>
+
+                                        <div class="entry-header">
+                                            <h2 class="entry-title"><?php echo $row["eventName"]; ?></h2>
+                                        </div>
+
+                                        <div class="entry-footer">
+                                            <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
+                                        </div>
                                     </div>
 
                                 <?php 
                                 } }
 
                         ?>
-                        <!-- <div class="event-partner-logo">
-                            <a href="#"><img src="images/pixar.png" alt=""></a>
-                        </div>
 
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/the-pirate.png" alt=""></a>
-                        </div>
 
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/himalayas.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/sa.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/south-porth.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/himalayas.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/sa.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/south-porth.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/pixar.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/the-pirate.png" alt=""></a>
-                        </div> -->
                     </div>
-                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next flex justify-content-center align-items-center">
+                        <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
+                    </div>
 
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="swiper-button-prev flex justify-content-center align-items-center">
+                        <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
+                    </div></div> </div> </div>
+</div> </div>
 
 <!-- <div class="newsletter-subscribe">
     <div class="container">
@@ -749,6 +613,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <div class="back-to-top flex justify-content-center align-items-center">
     <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1395 1184q0 13-10 23l-50 50q-10 10-23 10t-23-10l-393-393-393 393q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
 </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
 <script type='text/javascript' src='js/jquery.js'></script>
 <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
@@ -759,5 +627,41 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
 <script type='text/javascript' src='js/custom.js'></script>
 
+
 </body>
 </html>
+
+ <div id="dataModal" class="modal fade">  
+      <div class="modal-dialog">  
+           <div class="modal-content">  
+                <div class="modal-header">  
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                     <h4 class="modal-title">Event Details</h4>  
+                </div>  
+                <div class="modal-body" id="event_detail">  
+                    
+                </div>  
+                <div class="modal-footer">  
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                </div>  
+           </div>  
+      </div>  
+ </div>
+
+ <script>
+    $(document).ready(function(){
+        $('.viewEvent').click(function(){
+            var userid = '<?php echo $userID ?>' ;
+            var event_id = $(this).attr("id");
+            $.ajax ({
+                url: "selectEventReg.php",
+                method: "post",
+                data: {event_id:event_id, userid:userid},
+                success:function(data) {
+                    $('#event_detail').html(data);
+                    $('#dataModal').modal("show");
+                }
+            });
+        });
+    });
+</script>

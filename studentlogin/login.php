@@ -28,7 +28,7 @@ echo "THREE";
 					echo "this is here";
 					session_start();
 					$_SESSION['userId'] = $row['userID'];
-					$_SESSION['userName'] = $row['studentName'];
+					$_SESSION['userRoll'] = $row['studentRoll'];
 
 					header("Location: ../LoginPage/homepage.php?login=success");
 					exit();
