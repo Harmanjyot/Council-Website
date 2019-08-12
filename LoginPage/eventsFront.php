@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hello World</title>
+    <title>Events</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -48,33 +48,38 @@
                         </div><!-- .hamburger-menu -->
 
                         <ul>
-                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Home</a></li>
+                            <li><a href="homepage.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Home</a></li>
                             <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li>
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Events</a></li>
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li>
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
-                        </ul>
-                    </nav><!-- .site-navigation -->
-                </div><!-- .col -->
+                            <?php
+                             
+                             if(isset($_SESSION['userId']))
+                                    { ?>
+ <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">My Events</a></li>
+                                            </ul>
+                                         </nav>
+                                     </div>
 
                 <div class="col-lg-3 d-none d-lg-block order-2 order-lg-3">
                     <div class="buy-tickets">
-                            <?php 
-                        if(isset($_SESSION['userId']))
-                                    {
-                                        $userID = $_SESSION["userRoll"];
-                                    echo '<form action="includes/logout.inc.php" method="post">
+                                        
+                                    <form action="includes/logout.inc.php" method="post">
                                     <button class = "btn gradient-bg" type="submit" name="logout-submit">Logout</button>
-                                    </form>';
+                                    </form> </div></div>
+                                    <?php
+                                        $userID = $_SESSION["userRoll"]; 
                                     }
                                     else { ?>
                                         <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
                                         <?php
                                     }
                         ?>
-                        
-                    </div><!-- .buy-tickets -->
-                </div><!-- .col -->
+
+
+
+
             </div><!-- .row -->
         </div><!-- .container-fluid -->
     </div><!-- .header-bar -->
@@ -584,7 +589,7 @@
 
                 <nav class="footer-navigation">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="homepage.php">Home</a></li>
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Events</a></li>
                         <li><a href="#">News</a></li>
@@ -632,10 +637,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </html>
 
  <div id="dataModal" class="modal fade">  
-      <div class="modal-dialog">  
+      <div class="modal-dialog modal-lg" >  
            <div class="modal-content">  
-                <div class="modal-header">  
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+                <div class="modal-header">   
                      <h4 class="modal-title">Event Details</h4>  
                 </div>  
                 <div class="modal-body" id="event_detail">  

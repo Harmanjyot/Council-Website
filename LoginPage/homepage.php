@@ -47,32 +47,36 @@
                             <span></span>
                             <span></span>
                         </div><!-- .hamburger-menu -->
-
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li><a href="eventsFront.php">Events</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav><!-- .site-navigation -->
-                </div><!-- .col -->
+                            <li><a href="homepage.php" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Home</a></li>
+                            <li><a href="#"style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">About us</a></li>
+                            <li><a href="eventsFront.php" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Events</a></li>
+                            <li><a href="#" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">News</a></li>
+                            <li><a href="#" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Contact</a></li>
+                            <?php
+                             
+                             if(isset($_SESSION['userId']))
+                                    { ?>
+ <li><a href="#" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">My Events</a></li>
+                                            </ul>
+                                         </nav>
+                                     </div>
 
                 <div class="col-lg-3 d-none d-lg-block order-2 order-lg-3">
                     <div class="buy-tickets">
-                            <?php 
-                        if(isset($_SESSION['userId']))
-                                    {
-                                    echo '<form action="includes/logout.inc.php" method="post">
+                                        
+                                    <form action="includes/logout.inc.php" method="post">
                                     <button class = "btn gradient-bg" type="submit" name="logout-submit">Logout</button>
-                                    </form>';
+                                    </form> </div></div>
+                                    <?php
+                                        $userID = $_SESSION["userRoll"]; 
                                     }
                                     else { ?>
                                         <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
                                         <?php
                                     }
                         ?>
-                        
+        
                     </div><!-- .buy-tickets -->
                 </div><!-- .col -->
             </div><!-- .row -->

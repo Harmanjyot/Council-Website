@@ -12,24 +12,24 @@
       {  
            $output .= '  
                 <tr>  
-                     <td width="30%"><label>Event Name</label></td>  
+                     <td width="30%"><label><b>Event Name</b></label></td>  
                      <td width="70%">'.$row["eventName"].'</td> 
                      <td rowspan="5"> <img src="data:image/jpeg;base64,'.base64_encode($row['eventImage'] ).'" height="400" width="300" /> </td> 
                 </tr>  
                 <tr>  
-                     <td width="30%"><label>Event Date</label></td>  
+                     <td width="30%"><label><b>Event Date</b></label></td>  
                      <td width="70%">'.$row["eventDate"].'</td>  
                 </tr>  
                 <tr>  
-                     <td width="30%"><label>Event Time</label></td>  
+                     <td width="30%"><label><b>Event Time</b></label></td>  
                      <td width="70%">'.$row["eventTime"].'</td>  
                 </tr>  
                 <tr>  
-                     <td width="30%"><label>Event Description</label></td>  
+                     <td width="30%"><label><b>Event Description<b></label></td>  
                      <td width="70%">'.$row["eventDescription"].'</td>  
                 </tr>  
                 <tr>  
-                     <td width="30%"><label>Event Capacity</label></td>  
+                     <td width="30%"><label><b>Event Capacity</b></label></td>  
                      <td width="70%">'.$row["eventCapacity"].'</td>  
                 </tr>  
                 ';  
