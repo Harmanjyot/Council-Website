@@ -34,7 +34,7 @@
                 <div class="col-10 col-lg-2 order-lg-1">
                     <div class="site-branding">
                         <div class="site-title">
-                            <a href="#"><img src="images/logo.png" alt="logo"></a>
+                            <a href="#"><img src="images/OFAAX41.png" alt="logo"></a>
                         </div><!-- .site-title -->
                     </div><!-- .site-branding -->
                 </div><!-- .col -->
@@ -225,7 +225,7 @@
         <div class="row">
             <div class="col-12 col-md-4 col-lg-5">
                 <figure>
-                    <img src="images/Fcrit-Faces.jpg" alt="logo">
+                    <img src="images/F25670785.jpg" alt="logo">
                 </figure>
             </div>
 
