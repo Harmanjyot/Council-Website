@@ -33,7 +33,7 @@
                 <div class="col-10 col-lg-2 order-lg-1">
                     <div class="site-branding">
                         <div class="site-title">
-                            <a href="#"><img src="images/logo.png" alt="logo"></a>
+                            <a href="#"><img src="../images/faceslogo.jpg" alt="logo"></a>
                         </div><!-- .site-title -->
                     </div><!-- .site-branding -->
                 </div><!-- .col -->
@@ -585,7 +585,7 @@
         <div class="row">
             <div class="col-12">
                 <figure class="footer-logo">
-                    <a href="#"><img src="images/logo.png" alt="logo"></a>
+                    <a href="#"><img src="../images/council.png" alt="logo" height="150" width="150"></a>
                 </figure>
 
                 <nav class="footer-navigation">

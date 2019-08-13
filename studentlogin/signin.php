@@ -30,10 +30,10 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/"
 	exit();
 	}
 	else {
-		$sql = "INSERT INTO studentData(studentRoll, studentName, studentEmail, studentBranch, studentYear, studentGender, studentPass) VALUES(?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO studentdata(studentRoll, studentName, studentEmail, studentBranch, studentYear, studentGender, studentPass) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		$stmt = mysqli_stmt_init($conn);
 		mysqli_stmt_prepare($stmt, $sql);
-		mysqli_stmt_bind_param($stmt,"sssssss", $rollno, $username, $email, $branch, $year, $gender, $passHash);
+		mysqli_stmt_bind_param($stmt,"isssiss", $rollno, $username, $email, $branch, $year, $gender, $passHash);
 		mysqli_stmt_execute($stmt);
 		$stmt->close();
 

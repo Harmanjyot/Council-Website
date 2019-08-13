@@ -6,7 +6,7 @@ $rollno = $_POST['rollno'];
 $password = $_POST['password'];
 
 
-$sql = "SELECT * FROM studentData WHERE studentRoll = ?";
+$sql = "SELECT * FROM studentdata WHERE studentRoll = ?";
 echo "FIRST";
 $stmt = mysqli_stmt_init($conn);
 mysqli_stmt_prepare($stmt, $sql);
