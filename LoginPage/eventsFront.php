@@ -33,7 +33,7 @@
                 <div class="col-10 col-lg-2 order-lg-1">
                     <div class="site-branding">
                         <div class="site-title">
-                            <a href="#"><img src="../images/faceslogo.jpg" alt="logo"></a>
+                            <img src="../images/council.png" alt="logo">
                         </div><!-- .site-title -->
                     </div><!-- .site-branding -->
                 </div><!-- .col -->
@@ -57,7 +57,7 @@
                              
                              if(isset($_SESSION['userId']))
                                     { ?>
- <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">My Events</a></li>
+ <li><a href="myEvents.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">My Events</a></li>
                                             </ul>
                                          </nav>
                                      </div>
@@ -446,7 +446,7 @@
 </div> -->
 
 <div class="homepage-regional-events" style="overflow: hidden;" >
-    <div class="container" style="float: left; position: relative; top: -150px;">
+    <div class="container" style="float: left; position: relative; top: -75px;">
         <div class="row"  style="width: 140%;">
             <div class="col-12" style="width: 120%;">
                 <div class="swiper-container homepage-regional-events-slider" style="width: 120%;">
@@ -490,9 +490,10 @@
 
                     <!-- Add Arrows -->
                     <div class="swiper-pagination"></div>
+                    <div style="position: relative; right: -300px; top: -330px">
                     <div class="swiper-button-next flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
-                    </div>
+                    </div> </div>>
 
                     <div class="swiper-button-prev flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
@@ -500,10 +501,10 @@
                 </div><!-- .swiper-container -->
                 <br>
                 <br>
-                <div class="container" style="float: left; position: relative; top: -200px;">
+                <div class="container" style="float: left; position: relative; top: -100px;">
                 <div class="row"  style="width: 140%;">
                 <div class="col-12" style="width: 120%;">
-                <div class="swiper-container homepage-regional-events-slider" style="width: 120%;">
+                <div class="swiper-container homepage-regional-events-slider" style="width: 180%;">
                     <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
                         <h2 class="entry-title" style="position: relative; left: 10%;">Sports Events</h2>
                     </header>
@@ -520,7 +521,7 @@
                                     ?>
                                     <div class="swiper-slide">
                                         <figure>
-                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="400" width="300"/>
+                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
 
                                             <button type="button" name="viewEvent" class="event-overlay-link flex justify-content-center align-items-center viewEvent" id = <?php echo $row["SrNo"]; ?>>+</button>
                                         </figure>
@@ -540,15 +541,16 @@
                         ?>
 
 
-                    </div>
+                    </div></div>>
                 <div class="swiper-pagination"></div>
+                <div style="position: relative; right: -300px; top: -330px">
                 <div class="swiper-button-next flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
-                    </div>
+                    </div></div>
 
                     <div class="swiper-button-prev flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
-                    </div></div> </div> </div>
+                    </div></div> </div> 
 </div> </div>
 
 <!-- <div class="newsletter-subscribe">
@@ -591,9 +593,8 @@
                 <nav class="footer-navigation">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
                         <li><a href="homepage.php">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">News</a></li>
+                      <!--   <li><a href="#">About us</a></li> -->
+                        <li><a href="eventsFront.php">Events</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </nav>

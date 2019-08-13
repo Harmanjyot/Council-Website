@@ -57,7 +57,7 @@
                              
                              if(isset($_SESSION['userId']))
                                     { ?>
- <li><a href="#" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">My Events</a></li>
+ <li><a href="myEvents.php" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">My Events</a></li>
                                             </ul>
                                          </nav>
                                      </div>
@@ -725,9 +725,9 @@
                 <nav class="footer-navigation">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
+                        <!-- <li><a href="#">About us</a></li> -->
                         <li><a href="#">Events</a></li>
-                        <li><a href="#">News</a></li>
+                        <!-- <li><a href="#">News</a></li> -->
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </nav>
