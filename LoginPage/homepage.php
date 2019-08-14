@@ -249,11 +249,10 @@ surf various web platforms, we endeavour to give FACES an illusion of the same, 
 through to find several of our fresh and classic content. So grab some energy drink and get ready for
 the most magnificent three days that you can enjoy to your heart&#39;s content! Happy binging!</p>
                 </div>
-
+   <!--
                 <footer class="entry-footer">
-                    <a href="#" class="btn gradient-bg">Read More</a>
-                    <a href="#" class="btn dark">Register Now</a>
-                </footer>
+                 
+                </footer>-->
             </div>
         </div>
     </div>
