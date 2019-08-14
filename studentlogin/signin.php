@@ -37,6 +37,21 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/"
 		mysqli_stmt_execute($stmt);
 		$stmt->close();
 
+		$sql = "SELECT userID FROM studentdata WHERE studentRoll='$rollno'";
+		$result = mysqli_query($conn, $sql);
+		$userid = mysqli_fetch_array($result);
+
+		$sql = "SELECT branchID FROM branchdata WHERE branchName='$branch'";
+		$result = mysqli_query($conn, $sql);
+		$branchid = mysqli_fetch_array($result);
+
+		$sql = "INSERT INTO studentcriteria(studentID, branchID) VALUES(?,?)";
+		$stmt = mysqli_stmt_init($conn);
+		mysqli_stmt_prepare($stmt, $sql);
+		mysqli_stmt_bind_param($stmt,"ss",$userid[0], $branchid[0]);
+		mysqli_stmt_execute($stmt);
+		$stmt->close();
+
 		// $sql = "INSERT INTO studentData(studentRoll, studentName, studentEmail, studentBranch, studentYear, studentGender, studentPass) VALUES('$rollno', '$username', '$email', '$branch', '$sem', '$gender', '$passHash')";
 	}
 
