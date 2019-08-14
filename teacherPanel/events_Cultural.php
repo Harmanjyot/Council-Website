@@ -13,12 +13,12 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Admin</title>
+    <title>Teacher</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="../adminPanel/css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
@@ -52,14 +52,12 @@
         </li>
         <li><a class="app-menu__item" href="sponsor_data.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Sponsor Data</span></a>
         </li>
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
-        </li>
       </ul>
     </aside>
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1> Sports Events</h1>
+          <h1> Cultural Events</h1>
         </div>
       </div>
       <div class="row">
@@ -67,7 +65,7 @@
           <div class="tile">
             <div class="tile-body">
               <div class="container box">
-                 <h1 align="center">Add Sport Events</h1>
+                 <h1 align="center">Add Cultural Events</h1>
                  <br />
                  <div class="table-responsive">
                     <div id = "live_data"></div>
@@ -81,10 +79,10 @@
       </div>
     </main>
     <!-- Essential javascripts for application to work-->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="../adminPanel/js/jquery-3.2.1.min.js"></script>
+    <script src="../adminPanel/js/popper.min.js"></script>
+    <script src="../adminPanel/js/bootstrap.min.js"></script>
+    <script src="../adminPanel/js/main.js"></script>
 
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
@@ -96,7 +94,7 @@
       function fetch_data()  
       {  
            $.ajax({  
-                url:"select.php",  
+                url:"selectCulturalEvents.php",  
                 method:"POST",  
                 success:function(data){  
                      $('#live_data').html(data);  
@@ -110,34 +108,34 @@
            var sport_time = $('#sport_time').text(); 
            var sport_desc = $('#sport_desc').text(); 
            var sport_limit = $('#sport_limit').text();
-           var event_Type = "Sports";
+           var event_Type = "Cultural";
            if(sport_name == '')  
            {  
-                alert("Enter sport_name");  
+                alert("Enter event_name");  
                 return false;  
            }  
            if(sport_date == '')  
            {  
-                alert("Enter sport_date");  
+                alert("Enter event_date");  
                 return false;  
            } 
            if(sport_time == '')  
            {  
-                alert("Enter sport_time");  
+                alert("Enter event_time");  
                 return false;  
            }  
            if(sport_desc == '')  
            {  
-                alert("Enter sport_desc");  
+                alert("Enter event_desc");  
                 return false;  
            }  
            if(sport_limit == '')  
            {  
-                alert("Enter sport_limit");  
+                alert("Enter event_limit");  
                 return false;  
            }
            $.ajax({  
-                url:"insert.php",  
+                url:"insertCultural.php",  
                 method:"POST",  
                 data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, event_Type:event_Type, sport_limit:sport_limit},  
                 dataType:"text",  
@@ -191,7 +189,7 @@
          else
          {
           $.ajax({
-           url:"upload.php",
+           url:"uploadCultural.php",
            method:"POST",
            data:new FormData(this),
            contentType:false,
@@ -212,7 +210,7 @@
       function edit_data(id, text, column_name)  
       {  
            $.ajax({  
-                url:"edit.php",  
+                url:"editCultural.php",  
                 method:"POST",  
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
@@ -252,7 +250,7 @@
            if(confirm("Are you sure you want to delete this?"))  
            {  
                 $.ajax({  
-                     url:"delete.php",  
+                     url:"deleteCultural.php",  
                      method:"POST",  
                      data:{id:id},  
                      dataType:"text",  
@@ -264,7 +262,6 @@
            }  
       });  
  });  
-
  </script>
 
   </body>

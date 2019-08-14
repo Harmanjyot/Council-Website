@@ -235,13 +235,24 @@
                 </header>
 
                 <div class="entry-content">
-                    <p>Fr. Agnel Cultural Event And Sports - FACES. It is an annual Sports and Cultural fest of FCRIT Vashi. It is held every year in the month of August!</p>
+                    <p>The theme for FACES 2019 is a dedication to the web platforms that sustain our binge watching
+culture! The numerous web series that keep us engaged, entertained and intrigued constitute a
+major part of the type of media we consume these days. Oh the comfort of slipping into our blanket
+after a long day and forgetting all our worries and fatigue to these amazing stories! A theme that is
+surely going to keep up the enthusiasm for the three day gala!
+FACES has always held a special place in our hearts. A flamboyant fusion of sports and cultural
+activities, FACES has something to offer to each and everyone and oppurtunities for all to shine and
+bond.
+Hence, keeping up with our theme this year, we bring to you FACES as a streaming platform, with all
+of the events presented to you with your favourite web series as the packaging! Just the way you
+surf various web platforms, we endeavour to give FACES an illusion of the same, that you can surf
+through to find several of our fresh and classic content. So grab some energy drink and get ready for
+the most magnificent three days that you can enjoy to your heart&#39;s content! Happy binging!</p>
                 </div>
-
+   <!--
                 <footer class="entry-footer">
-                    <a href="#" class="btn gradient-bg">Read More</a>
-                    <a href="#" class="btn dark">Register Now</a>
-                </footer>
+                 
+                </footer>-->
             </div>
         </div>
     </div>
@@ -724,9 +735,9 @@
 
                 <nav class="footer-navigation">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="homepage.php">Home</a></li>
                         <!-- <li><a href="#">About us</a></li> -->
-                        <li><a href="#">Events</a></li>
+                        <li><a href="eventsFront.php">Events</a></li>
                         <!-- <li><a href="#">News</a></li> -->
                         <li><a href="#">Contact</a></li>
                     </ul>
