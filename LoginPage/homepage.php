@@ -724,9 +724,9 @@
 
                 <nav class="footer-navigation">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="homepage.php">Home</a></li>
                         <!-- <li><a href="#">About us</a></li> -->
-                        <li><a href="#">Events</a></li>
+                        <li><a href="eventsFront.php">Events</a></li>
                         <!-- <li><a href="#">News</a></li> -->
                         <li><a href="#">Contact</a></li>
                     </ul>
