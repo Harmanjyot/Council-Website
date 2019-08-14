@@ -95,23 +95,28 @@
         <div class="row">
             <?PHP
 
-            $query = "SELECT * FROM eventRegistrations WHERE studentID='$userID'";
+            $query = "SELECT eventID FROM eventRegistrations WHERE studentID='$userID'";
             $result = mysqli_query($conn, $query);
-            if(mysqli_num_rows($result) > 0)  
+            if(mysqli_num_rows($result) > 0)  {
+                // $array = mysqli_fetch_array($result);
             {   $rownum = mysqli_num_rows($result);
                 echo $rownum;
                         while ($row = mysqli_fetch_array($result))
                         {
+                            $i=0;
+                            $sql = "SELECT * FROM eventlist WHERE SrNo = '$row[$i]'";
+                            $res = mysqli_query($conn, $sql);
+                            $data=mysqli_fetch_assoc($res);
                         ?>
                         <div style="position: relative; top: 100px;">
-                            <h3><b>Event Name: </b><?php echo $row["eventName"]; ?></h3>
-                            <h3><b>Event Date: </b><?php echo $row["eventDate"]; ?></h3>
-                            <h3><b>Event Time: </b><?php echo $row["eventTime"]; ?></h3>
-                            <h3><b>Event Description: </b><?php echo $row["eventDescription"]; ?></h3>
+                            <h3><b>Event Name: </b><?php echo $data["eventName"]; ?></h3>
+                            <h3><b>Event Date: </b><?php echo $data["eventDate"]; ?></h3>
+                            <h3><b>Event Time: </b><?php echo $data["eventTime"]; ?></h3>
+                            <h3><b>Event Description: </b><?php echo $data["eventDescription"]; ?></h3>
                         </div>
 
                        <?php 
-                       }}
+                       $i=+1;}}}
                        ?> 
         </div>
     </div>
