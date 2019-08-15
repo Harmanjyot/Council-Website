@@ -49,9 +49,9 @@
 
                         <ul>
                             <li><a href="homepage.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Home</a></li>
-                            <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li>
+               <!--              <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li> -->
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Events</a></li>
-                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li>
+          <!--                   <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li> -->
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
                             <?php
                              

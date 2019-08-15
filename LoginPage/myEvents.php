@@ -50,7 +50,7 @@
 
                         <ul>
                             <li><a href="homepage.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Home</a></li>
-                            <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li>
+                          <!--   <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li> -->
                             <li><a href="eventsFront.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Events</a></li>
       <!--                       <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li> -->
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
@@ -100,7 +100,6 @@
             if(mysqli_num_rows($result) > 0)  {
                 // $array = mysqli_fetch_array($result);
             {   $rownum = mysqli_num_rows($result);
-                echo $rownum;
                         while ($row = mysqli_fetch_array($result))
                         {
                             $i=0;
