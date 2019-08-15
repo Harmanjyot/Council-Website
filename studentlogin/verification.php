@@ -79,6 +79,7 @@
                     // Execute the query
                     if($stmt->execute()){
                         // echo "<div>Unverified email was saved to the database.</div>";
+                        
                     }else{
                         echo "<div>Unable to save your email to the database.";
                         //print_r($stmt->errorInfo());

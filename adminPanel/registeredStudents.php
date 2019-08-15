@@ -1,7 +1,3 @@
-<?php
-  require "../php/conn.php";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +13,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Admin</title>
+    <title>Registered</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +21,6 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    
   </head>
   <body class="app sidebar-mini rtl">
     <!-- Navbar-->
@@ -69,18 +64,22 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fas fa-line-chart"></i> Dashboard</h1>
+          <h1> Sports Events</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <div class="table-responsive">
+              <div class="container box">
+                 <h1 align="center">Add Sport Events</h1>
+                 <br />
+                 <div class="table-responsive">
                     <div id = "live_data"></div>
                  </div>
-                
-              </div>              
+              </div>
+    <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+
             </div>
           </div>
         </div>
@@ -91,15 +90,18 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <!-- Google analytics script-->
 
-    <script>
-  $(document).ready(function(){  
+    <script>  
+ $(document).ready(function(){  
       function fetch_data()  
       {  
            $.ajax({  
-                url:"selectBranchScore.php",  
+                url:"selectRegistered.php",  
                 method:"POST",  
                 success:function(data){  
                      $('#live_data').html(data);  
@@ -108,32 +110,9 @@
       }  
       fetch_data();  
 
-
-      function edit_data(id, text, column_name)  
-      {  
-           $.ajax({  
-                url:"editBranchScore.php",  
-                method:"POST",  
-                data:{id:id, text:text, column_name:column_name},  
-                dataType:"text",  
-                success:function(data){  
-                     fetch_data();
-                }  
-           });  
-      }  
-      $(document).on('blur', '.branch_score', function(){  
-           var id = $(this).data("id3");
-           var branch_score = $(this).text();  
-           edit_data(id, branch_score, "Score");  
-      });  
-
  });  
 
+ </script>
 
-</script>>
-
-    <!-- Page specific javascripts-->
-    <!-- Google analytics script-->
   </body>
 </html>
-
