@@ -180,6 +180,18 @@ ALTER TABLE `studentdata`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+CREATE TABLE `studentverification` (
+  `SrNo` int(11) NOT NULL,
+  `studentRoll` varchar(6) NOT NULL,
+  `studentEmail` varchar(255) NOT NULL,
+  `verified` tinyint(1) NOT NULL,
+  `studentPassword` varchar(255) NOT NULL,
+  `vkey` varchar(255) NOT NULL,
+  `studentName` varchar(255) NOT NULL,
+  `studentBranch` varchar(255) NOT NULL,
+  `studentYear` varchar(1) NOT NULL,
+  `studentGender` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- AUTO_INCREMENT for table `branchdata`
