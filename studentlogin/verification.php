@@ -8,7 +8,6 @@
 
 
 	 	$query = "SELECT SrNo FROM studentVerification WHERE studentRoll = '$userRoll' and verified = '1' and studentEmail='$userEmail'";
-
  		$result = mysqli_query($conn, $query);
  		$num = mysqli_num_rows($result);
         if($num>0){
@@ -20,7 +19,7 @@
             // check first if there's unverified email related
             $query = "SELECT SrNo FROM studentVerification WHERE studentEmail = ? and verified = '0' and studentRoll= ?";
             $stmt = $conn->prepare( $query );
-            $stmt->bindParam(1, $email, $userRoll);
+            $stmt->bindParam(1, $email);
             $stmt->execute();
             $num = $stmt->rowCount();
  
