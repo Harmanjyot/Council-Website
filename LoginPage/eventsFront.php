@@ -451,7 +451,7 @@
             <div class="col-12" style="width: 120%;">
                 <div class="swiper-container homepage-regional-events-slider" style="width: 120%;">
                     <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
-                        <h2 class="entry-title" style="position: relative; left: 10%;">Cultural Events</h2>
+                        <h2 class="entry-title" >Cultural Events</h2>
                     </header>
                     <div class="swiper-wrapper">
 
@@ -506,7 +506,7 @@
                 <div class="col-12" style="width: 120%;">
                 <div class="swiper-container homepage-regional-events-slider" style="width: 180%;">
                     <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
-                        <h2 class="entry-title" style="position: relative; left: 10%;">Sports Events</h2>
+                        <h2 class="entry-title" >Sports Events</h2>
                     </header>
                     <div class="swiper-wrapper">
 

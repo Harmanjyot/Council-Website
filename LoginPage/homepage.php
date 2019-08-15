@@ -218,7 +218,88 @@
             <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
         </div>
     </div><!-- .swiper-container -->
-</header><!-- .site-header -->
+<div class="homepage-info-section">
+    <div class="site-branding">
+    <div class="row" >
+        <?php 
+        $query = "SELECT * FROM branchScore ORDER BY Score DESC";
+        $result = mysqli_query($conn, $query);
+        $count =0;
+        $max = 0;
+        if(mysqli_num_rows($result) > 0)
+        {
+            while ($row = mysqli_fetch_array($result))
+            {   
+                if (($count == 0 || $max = $row["Score"]) && $row["Score"] != 0) { 
+                    $max = $row["Score"]?>
+                    <div class="column" >
+
+                        <div class="card" style="height: 450px; width: 400px; <?php
+                        if ($row["branchName"] == "IT")
+                        {
+                            echo "background-image: url('../images/ITback.png')";
+                        }
+                        elseif ($row["branchName"] == "Mechanical") {
+                            echo "background-image: url('../images/mechBack.png')";
+                        }
+                        elseif ($row["branchName"] == "Computers") {
+                            echo "background-image: url('../images/compsBack.png')";
+                        }
+                        elseif ($row["branchName"] == "EXTC") {
+                            echo "background-image: url('../images/extcBack.png')";
+                        }
+                        elseif ($row["branchName"] == "Electrical") {
+                            echo "background-image: url('../images/ElecBack.png')";
+                        }
+                         ?>; background-size: cover; ">
+
+                            <div style="position: relative;top: 150px; height: 200px; width: 320px; background-image: url('../images/blackOverlay.png');">
+                                <h1 align="center" style="color: white;"><b> <?php echo $row["branchName"]; ?></b></h1>
+                                <h1 align="center" style="color: white;"><b> <?php echo $row["Score"]; ?> </b></h1>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <?php
+                    $count = 1;
+                }
+                else {
+                ?>
+                    <div class="column">
+                        <div class="card" style="height: 400px; width: 340px; <?php
+                        if ($row["branchName"] == "IT")
+                        {
+                            echo "background-image: url('../images/ITback.png')";
+                        }
+                        elseif ($row["branchName"] == "Mechanical") {
+                            echo "background-image: url('../images/mechBack.png')";
+                        }
+                        elseif ($row["branchName"] == "Computers") {
+                            echo "background-image: url('../images/compsBack.png')";
+                        }
+                        elseif ($row["branchName"] == "EXTC") {
+                            echo "background-image: url('../images/extcBack.png')";
+                        }
+                        elseif ($row["branchName"] == "Electrical") {
+                            echo "background-image: url('../images/ElecBack.png')";
+                        }
+                         ?>; background-size: cover; ">
+                            <div style="position: relative;top: 150px; background-image: url('../images/blackOverlay.png'); height: 200px; width: 310px;">
+                                <h3 align="center" style="color: white;"> <?php echo $row["branchName"]; ?></h3>
+                                <h2 align="center" style="color: white;"> <?php echo $row["Score"]; ?> </h2>
+                            </div>
+                            
+                        </div>
+                    </div>
+                     <?php
+                 }
+            }
+        }  
+       
+        ?>
+    </div></div>
+</div>
+
 
 <div class="homepage-info-section">
     <div class="container">

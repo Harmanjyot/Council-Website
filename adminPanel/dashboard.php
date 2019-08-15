@@ -225,7 +225,12 @@
             <li><a class="treeview-item" href="criteria_Incomplete.php"><i class="icon fa fa-circle-o"></i> Criteria Incomplete</a></li>
           </ul>
         </li>
-
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Branch Data</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="student_General.php"><i class="icon fa fa-circle-o"></i> General </a></li>
+            <li><a class="treeview-item" href="branchScore.php"><i class="icon fa fa-circle-o"></i> Score </a></li>
+          </ul>
+        </li>
         <li><a class="app-menu__item" href="registrations.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Registrations</span></a>
         </li>
         <li><a class="app-menu__item" href="sponsor_data.php"><i class="app-menu__icon fa fas fa-graduation-cap"></i><span class="app-menu__label"> Sponsor Data</span></a>
