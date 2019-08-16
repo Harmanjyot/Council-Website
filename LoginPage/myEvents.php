@@ -120,6 +120,10 @@
         </div>
     </div>
 </div>
+<form method="post" action="../qr/index.php">
+<input type="submit" name="qr-generate" value="Click to View QR">                            
+</form>
+
 
 <!-- <div class="homepage-featured-events">
     <div class="container">
