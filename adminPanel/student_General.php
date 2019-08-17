@@ -14,7 +14,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Admin</title>
+    <title>Branch Details</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,12 +60,14 @@
         </li>
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> Student  Council</span></a>
         </li>
+        <li><a class="app-menu__item" href="toExcel.php"><i class="app-menu__icon fa fas fa-sitemap"></i><span class="app-menu__label"> EXPORT </span></a>
+        </li>
       </ul>
     </aside>
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1> General Student Data</h1>
+          <h1> General Branch Data</h1>
         </div>
       </div>
       <div class="row">
@@ -119,7 +121,6 @@
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
-                     alert(data);  
                      fetch_data();
                 }  
            });  

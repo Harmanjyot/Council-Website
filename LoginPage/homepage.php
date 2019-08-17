@@ -85,7 +85,7 @@
 
     <div class="swiper-container hero-slider">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" data-date="2018/05/01" style="background: url('images/header-bg.jpg') no-repeat">
+            <div class="swiper-slide" data-date="2019/08/29" style="background: url('images/header-bg.jpg') no-repeat">
                 <div class="hero-content">
                     <div class="container">
                         <div class="row">
@@ -125,7 +125,7 @@
                 </div><!-- .swiper-slide -->
             </div><!-- .swiper-wrapper -->
 
-            <div class="swiper-slide" data-date="2019/05/01" style="background: url('images/football-1.jpg') no-repeat">
+            <div class="swiper-slide" data-date="2019/08/29" style="background: url('images/football-1.jpg') no-repeat">
                 <div class="hero-content">
                     <div class="container">
                         <div class="row">
@@ -165,7 +165,7 @@
                 </div><!-- .swiper-slide -->
             </div><!-- .swiper-wrapper -->
 
-            <div class="swiper-slide" data-date="2020/05/01" style="background: url('images/football.jpg') no-repeat">
+            <div class="swiper-slide" data-date="2019/08/29" style="background: url('images/football.jpg') no-repeat">
                 <div class="hero-content">
                     <div class="container">
                         <div class="row">
@@ -234,7 +234,7 @@
                     $max = $row["Score"]?>
                     <div class="column" >
 
-                        <div class="card" style="height: 450px; width: 400px; <?php
+                        <div class="card" style="height: 400px; width: 340px; <?php
                         if ($row["branchName"] == "IT")
                         {
                             echo "background-image: url('../images/ITback.png')";
@@ -254,8 +254,8 @@
                          ?>; background-size: cover; ">
 
                             <div style="position: relative;top: 150px; height: 200px; width: 320px; background-image: url('../images/blackOverlay.png');">
-                                <h1 align="center" style="color: white;"><b> <?php echo $row["branchName"]; ?></b></h1>
-                                <h1 align="center" style="color: white;"><b> <?php echo $row["Score"]; ?> </b></h1>
+                                <h1 align="center" style="color: white; font-size: 60px;"><b> <?php echo $row["branchName"]; ?></b></h1>
+                                <h1 align="center" style="color: white; font-size: 55px;"><b> <?php echo $row["Score"]; ?> </b></h1>
                             </div>
                             
                         </div>
@@ -285,8 +285,8 @@
                         }
                          ?>; background-size: cover; ">
                             <div style="position: relative;top: 150px; background-image: url('../images/blackOverlay.png'); height: 200px; width: 310px;">
-                                <h3 align="center" style="color: white;"> <?php echo $row["branchName"]; ?></h3>
-                                <h2 align="center" style="color: white;"> <?php echo $row["Score"]; ?> </h2>
+                                <h3 align="center" style="color: white; font-size: 50px;"> <?php echo $row["branchName"]; ?></h3>
+                                <h2 align="center" style="color: white; font-size: 45px;"> <?php echo $row["Score"]; ?> </h2>
                             </div>
                             
                         </div>

@@ -108,10 +108,12 @@
                             $data=mysqli_fetch_assoc($res);
                         ?>
                         <div style="position: relative; top: 100px;">
-                            <h3><b>Event Name: </b><?php echo $data["eventName"]; ?></h3>
-                            <h3><b>Event Date: </b><?php echo $data["eventDate"]; ?></h3>
-                            <h3><b>Event Time: </b><?php echo $data["eventTime"]; ?></h3>
-                            <h3><b>Event Description: </b><?php echo $data["eventDescription"]; ?></h3>
+                            <h5><b>Event Name: </b><?php echo $data["eventName"]; ?></h5>
+                            <h5><b>Event Date: </b><?php echo $data["eventDate"]; ?></h5>
+                            <h5><b>Event Time: </b><?php echo $data["eventTime"]; ?></h5>
+                            <h5><b>Event Description: </b><?php echo $data["eventDescription"]; ?></h5>
+                            <br>
+                            <br>
                         </div>
 
                        <?php 
@@ -120,9 +122,23 @@
         </div>
     </div>
 </div>
-<form method="post" action="../qr/index.php">
-<input type="submit" name="qr-generate" value="Click to View QR">                            
-</form>
+
+<?php
+    $query = "SELECT * from studentCriteria where studentID = '$userRoll' and criteriaStatus ='1' ";
+    $result = mysqli_query($conn, $query);
+    $row = mysqli_num_rows($result);
+    if ($row > 0) { ?>
+        <div class="col-lg-6" style="position: relative; left: 50px;">
+            <form method="post" action="../qr/index.php">
+                <input type="submit" name="qr-generate" value="Click to View QR">            
+            </form>
+        </div>
+        
+<?php 
+    }
+
+ ?>
+
 
 
 <!-- <div class="homepage-featured-events">

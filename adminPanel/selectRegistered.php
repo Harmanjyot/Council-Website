@@ -11,7 +11,8 @@
                      <th width="20%">Roll No</th> 
                      <th width="30%">Name</th>  
                      <th width="15%">Branch</th>  
-                     <th width="15%">Year</th>    
+                     <th width="15%">Year</th> 
+                     <th width="15%">Delete</th>   
                 </tr>';  
  if(mysqli_num_rows($result) > 0)  
  {  
@@ -20,10 +21,11 @@
            $output .= '  
                 <tr>  
                      <td>'.$row["userID"].'</td>  
-                     <td class = "rollno" data-id1="'.$row["userID"].'" contenteditable>'.$row["studentRoll"].'</td>  
-                     <td class = "name" data-id2="'.$row["userID"].'" contenteditable>'.$row["studentName"].'</td>  
-                     <td class = "branch" data-id3="'.$row["userID"].'" contenteditable>'.$row["studentBranch"].'</td>  
-                     <td class = "year" data-id4="'.$row["userID"].'" contenteditable>'.$row["studentYear"].'</td>  
+                     <td class = "rollno" data-id1="'.$row["userID"].'">'.$row["studentRoll"].'</td>  
+                     <td class = "name" data-id2="'.$row["userID"].'" >'.$row["studentName"].'</td>  
+                     <td class = "branch" data-id3="'.$row["userID"].'" >'.$row["studentBranch"].'</td>  
+                     <td class = "year" data-id4="'.$row["userID"].'" >'.$row["studentYear"].'</td> 
+                     <td><button type="button" name="delete_btn" data-id5="'.$row["studentRoll"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
                 </tr>  
            ';  
       }  

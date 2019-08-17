@@ -27,37 +27,53 @@ require "../php/conn.php";
 
  		// $sql = "SELECT * FROM studentcriteria WHERE "
 
+ 		$query = "SELECT * FROM studentcriteria where studentID = '".$_POST["userroll"]."'";
+ 		$result = mysqli_query($conn, $query);
+ 		$row = mysqli_fetch_array($result);
+ 		$currentCrit = $row["criteriaStatus"];
+ 		$sport = $row["sport_technicalEvent"];
+ 		$cultural = $row["culturalEvent"];
+
  		$sql = "SELECT eventType FROM eventlist WHERE SrNo = '$event_id'";
  		$result = mysqli_query($conn, $sql);
- 		$eventType = mysqli_fetch_array($result);
+ 		$row = mysqli_fetch_array($result);
 
- 		if($eventType[0] == "Sports") {
+ 		if($row["eventType"] == "Sports") {
  			$sport = true;
- 		} else {
+ 		} 
+ 		if ($row["eventType"] == "Cultural") {
  			$cultural = true;
  		}
- 		$query = "UPDATE studentcriteria SET culturalEvent='$cultural', sport_technicalEvent='$sport' WHERE studentID='".$_POST["userid"]."' criteriaStatus = '1'";
- 		$result = mysqli_query($conn, $query);
 
- 		$query = "SELECT * FROM studentData WHERE studentRoll = '".$_POST["userroll"]."'";
- 		$result = mysqli_query($conn, $query);
- 		$row = mysqli_fetch_array($result);
- 		$branch = $row["studentBranch"];
- 		$year = $row["studentYear"];
 
- 		$query = "SELECT * FROM branchData WHERE branchName = '$branch' and branchYear = '$year'";
- 		$result = mysqli_query($conn, $query);
- 		$row = mysqli_fetch_array($result);
- 		$criteria = $row["branchCriteria"];
- 		$newCrite = $criteria + 1;
- 		$sql = "UPDATE branchData SET branchCriteria = '$newCrite' WHERE branchName = '$branch' and branchYear = '$year'";
-        $result = mysqli_query($conn, $sql);
-        
+ 		if ($currentCrit == 0) 
+ 		{
+ 			$query = "UPDATE studentcriteria SET culturalEvent='$cultural', sport_technicalEvent='$sport', criteriaStatus = '1' WHERE studentID='".$_POST["userroll"]."' ";
+	 		$result = mysqli_query($conn, $query);
 
- 		echo "Registration completed";
+	 		$query = "SELECT * FROM studentData WHERE studentRoll = '".$_POST["userroll"]."'";
+	 		$result = mysqli_query($conn, $query);
+	 		$row = mysqli_fetch_array($result);
+	 		$branch = $row["studentBranch"];
+	 		$year = $row["studentYear"];
+
+	 		$query = "SELECT * FROM branchData WHERE branchName = '$branch' and branchYear = '$year'";
+	 		$result = mysqli_query($conn, $query);
+	 		$row = mysqli_fetch_array($result);
+	 		$criteria = $row["branchCriteria"];
+	 		$newCrite = $criteria + 1;
+	 		$sql = "UPDATE branchData SET branchCriteria = '$newCrite' WHERE branchName = '$branch' and branchYear = '$year'";
+	        $result = mysqli_query($conn, $sql);
+	        
+
+	 		echo "Registration completed";
  		}
-
- 		
+ 		else {
+ 			$query = "UPDATE studentcriteria SET culturalEvent='$cultural', sport_technicalEvent='$sport', criteriaStatus = '1' WHERE studentID='".$_POST["userroll"]."' ";
+	 		$result = mysqli_query($conn, $query);
+	 		echo "Registration completed";
+ 		}
+ 	    }	
  	}
  	else {
  		echo "Registrations full";

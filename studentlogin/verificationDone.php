@@ -32,7 +32,7 @@ if (isset($_GET["vkey"])) {
         $sql = "INSERT INTO studentData(studentRoll, studentName, studentEmail, studentBranch, studentYear, studentGender, studentPass) VALUES('$roll', '$name', '$email', '$branch', '$year', '$gender', '$pass')";
         $result = mysqli_query($conn, $sql);
 
-        $sql = "INSERT INTO studentCriteria(studentID, branchID, culturalEvent, sport_technicalEvent, criteriaStatus) VALUES('$roll', '$branch', '0', '0', '0')";
+        $sql = "INSERT INTO studentCriteria(studentID, branchName, culturalEvent, sport_technicalEvent, criteriaStatus) VALUES('$roll', '$branch', '0', '0', '0')";
         $result = mysqli_query($conn, $sql);
         
         $sql = "SELECT * FROM branchData where branchName = '$branch' and branchYear='$year'";
