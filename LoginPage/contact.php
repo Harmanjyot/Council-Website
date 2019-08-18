@@ -6,9 +6,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>My Events</title>
+    <title>Home</title>
 
     <!-- Required meta tags -->
+    <link href=“https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css”/>
+    <script src="https://kit.fontawesome.com/befb6dabc5.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,8 +25,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
-    <script src="js/custom.js"></script>
-    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <!-- <script src="js/custom.js"></script> -->
 </head>
 <body>
 
@@ -54,7 +56,7 @@
                           <!--   <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li> -->
                             <li><a href="eventsFront.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Events</a></li>
       <!--                       <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li> -->
-                            <li><a href="contact.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
+                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
                             <?php
                              
                              if(isset($_SESSION['userId']))
@@ -72,73 +74,20 @@
                                     </form> </div></div>
                                     <?php
                                         $userID = $_SESSION["userId"]; 
-                                        $userRoll = $_SESSION["userRoll"];
                                     }
                                     else { ?>
                                         <a class="btn gradient-bg" href="../studentlogin/studentlogin.php">Login</a>
                                         <?php
                                     }
                         ?>
-
-
-
-
+        
+                    </div><!-- .buy-tickets -->
+                </div><!-- .col -->
             </div><!-- .row -->
-        </div><!-- .container-fluid -->
-    </div><!-- .row -->
         </div><!-- .container-fluid -->
     </div><!-- .header-bar -->
 
-</header><!-- .site-header -->
 
-<div class="homepage-info-section">
-    <div class="container">
-        <div class="row">
-            <?PHP
-
-            $query = "SELECT eventID FROM eventRegistrations WHERE studentID='$userID'";
-            $result = mysqli_query($conn, $query);
-            if(mysqli_num_rows($result) > 0)  {
-                // $array = mysqli_fetch_array($result);
-            {   $rownum = mysqli_num_rows($result);
-                        while ($row = mysqli_fetch_array($result))
-                        {
-                            $i=0;
-                            $sql = "SELECT * FROM eventlist WHERE SrNo = '$row[$i]'";
-                            $res = mysqli_query($conn, $sql);
-                            $data=mysqli_fetch_assoc($res);
-                        ?>
-                        <div style="position: relative; top: 100px;">
-                            <h5><b>Event Name: </b><?php echo $data["eventName"]; ?></h5>
-                            <h5><b>Event Date: </b><?php echo $data["eventDate"]; ?></h5>
-                            <h5><b>Event Time: </b><?php echo $data["eventTime"]; ?></h5>
-                            <h5><b>Event Description: </b><?php echo $data["eventDescription"]; ?></h5>
-                            <br>
-                            <br>
-                        </div>
-
-                       <?php 
-                       $i=+1;}}}
-                       ?> 
-        </div>
-    </div>
-</div>
-
-<?php
-    $query = "SELECT * from studentCriteria where studentID = '$userRoll' and criteriaStatus ='1' ";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_num_rows($result);
-    if ($row > 0) { ?>
-        <div class="col-lg-6" style="position: relative; left: 50px;">
-            <form method="post" action="../qr/index.php">
-                <input type="submit" name="qr-generate" value="Click to View QR">            
-            </form>
-        </div>
-        
-<?php 
-    }
-
- ?>
 
 
 
@@ -342,238 +291,18 @@
 <div class="homepage-regional-events">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <header class="regional-events-heading entry-header flex flex-wrap justify-content-between align-items-center">
-                    <h2 class="entry-title">Some Interesting Events</h2>
+            <div class="col-12" style="overflow: hidden;">
+                <!-- <div style="background-image: url('../images/whiteOver.png'); width: 1000px; height: 600px; "> -->
+                    <h2 style="font-family: 'Inconsolata', monospace;  color: white; font-size: 50px;">Contact us</h2>
+                    <br><br><br>
+                    <h5><i class="fa fas fa-envelope-square" style="color: white;">   studentcouncil.fcrit@gmail.com </i></h5>
+                    <br><br>
+                    <h5><i class="fas fa-phone-square-alt" style="color: white;"> +91 81693 38617 <i>(Arnold Almeida)</i></i></h5><br><br>
+                    <h5><i class="fas fa-phone-square-alt" style="color: white;"> +91 72080 43072 <i>(Abhishek Pandey)</i></i></h5>
+                <!-- </div> -->
+            </div><!-- .swiper-container -->
 
-<!--                     <div class="select-location">
-                        <select>
-                            <option>New York</option>
-                            <option>California</option>
-                            <option>South Carolina</option>
-                        </select>
-                    </div> -->
-                </header>
-
-                <div class="swiper-container homepage-regional-events-slider">
-                    <div class="swiper-wrapper">
-
-                        <?php
-                            $sql = "SELECT * FROM eventList where eventType = 'Sports' LIMIT 3";  
-                            $result = mysqli_query($conn, $sql); 
-                            if(mysqli_num_rows($result) > 0)  
-                            {  
-                                while($row = mysqli_fetch_array($result))  
-                                { 
-                                    $imageSponsor = base64_encode($row['eventImage'])
-                                    ?>
-                                    <div class="swiper-slide">
-                                        <figure>
-                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
-
-                                            <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                                        </figure>
-
-                                        <div class="entry-header">
-                                            <h2 class="entry-title"><?php echo $row["eventName"]; ?></h2>
-                                        </div>
-
-                                        <div class="entry-footer">
-                                            <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
-                                        </div>
-                                    </div>
-
-                                <?php 
-                                } }
-
-                            $sql = "SELECT * FROM eventList where eventType = 'Cultural' LIMIT 3";  
-                            $result = mysqli_query($conn, $sql); 
-                            if(mysqli_num_rows($result) > 0)  
-                            {  
-                                while($row = mysqli_fetch_array($result))  
-                                { 
-                                    $imageSponsor = base64_encode($row['eventImage'])
-                                    ?>
-                                    <div class="swiper-slide">
-                                        <figure>
-                                            <img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="300" width="300"/>
-
-                                            <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                                        </figure>
-
-                                        <div class="entry-header">
-                                            <h2 class="entry-title"><?php echo $row["eventName"]; ?></h2>
-                                        </div>
-
-                                        <div class="entry-footer">
-                                            <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
-                                        </div>
-                                    </div>
-
-                                <?php 
-                                } }
-
-                        ?>
-                        <!-- <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-1.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">U2 Concert </h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-2.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Broadway Hit </h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-3.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Gallery Exibition</h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-4.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Art Gallery</h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/event-slider-5.jpg" alt="">
-
-                                <a class="event-overlay-link flex justify-content-center align-items-center" href="#">+</a>
-                            </figure>
-
-                            <div class="entry-header">
-                                <h2 class="entry-title">Music Concert</h2>
-                            </div>
-
-                            <div class="entry-footer">
-                                <div class="posted-date">Saturday <span>Jan 27, 2018</span></div>
-                            </div>
-                        </div> -->
-
-                        
-                        </div><!-- .swiper-slide -->
-                    </div><!-- .swiper-wrapper -->
-
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-next flex justify-content-center align-items-center">
-                        <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
-                    </div>
-
-                    <div class="swiper-button-prev flex justify-content-center align-items-center">
-                        <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
-                    </div>
-                </div><!-- .swiper-container -->
-
-                <div class="events-partners">
-                    <header class="entry-header">
-                        <h2 class="entry-title">Partners</h2>
-                    </header>
-
-                    <div class="events-partners-logos flex flex-wrap justify-content-between align-items-center">
-
-                        <?php
-
-                            $sql = "SELECT * FROM sponsorData";  
-                            $result = mysqli_query($conn, $sql);  
-                            if(mysqli_num_rows($result) > 0)  
-                            {  
-                                while($row = mysqli_fetch_array($result))  
-                                { 
-                                    $imageSponsor = base64_encode($row['sponsorImage'])
-                                    ?>
-                                    <div class="event-partner-logo">
-                                        <a href="#"><img src="data:image/jpeg;base64, <?php echo $imageSponsor; ?>" height="200" width="200"/></a>
-                                    </div>
-
-                                <?php 
-                                } }
-
-                        ?>
-                        <!-- <div class="event-partner-logo">
-                            <a href="#"><img src="images/pixar.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/the-pirate.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/himalayas.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/sa.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/south-porth.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/himalayas.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/sa.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/south-porth.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/pixar.png" alt=""></a>
-                        </div>
-
-                        <div class="event-partner-logo">
-                            <a href="#"><img src="images/the-pirate.png" alt=""></a>
-                        </div> -->
-                    </div>
-                </div>
+              
 
             </div>
         </div>
@@ -614,16 +343,16 @@
         <div class="row">
             <div class="col-12">
                 <figure class="footer-logo">
-                    <a href="#"><img src="../images/council.png" alt="logo"></a>
+                    <a href="#"><img src="../images/council.png" alt="logo" height="150" width="150"></a>
                 </figure>
 
                 <nav class="footer-navigation">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
                         <li><a href="homepage.php">Home</a></li>
-<!--                         <li><a href="#">About us</a></li> -->
+                        <!-- <li><a href="#">About us</a></li> -->
                         <li><a href="eventsFront.php">Events</a></li>
-<!--                         <li><a href="#">News</a></li> -->
-                        <li><a href="contact.php">Contact</a></li>
+                        <!-- <li><a href="#">News</a></li> -->
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </nav>
 
@@ -633,7 +362,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 <!--                 <div class="footer-social">
                     <ul class="flex flex-wrap justify-content-center align-items-center">
+                        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     </ul>
                 </div> -->
             </div>

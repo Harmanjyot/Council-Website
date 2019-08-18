@@ -120,7 +120,8 @@
                      method:"POST",  
                      data:{id:id},  
                      dataType:"text",  
-                     success:function(data){  
+                     success:function(data){ 
+                     alert(data); 
                           fetch_data();  
                      }  
                 });  

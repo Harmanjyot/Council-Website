@@ -1,6 +1,8 @@
 <?php  
  require "../php/conn.php";
 
+        $roll = $_POST["id"];
+        echo $roll;
         $sql = "SELECT * FROM studentData where studentRoll = '".$_POST["id"]."'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
@@ -18,15 +20,16 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
         $criteria = $row["criteriaStatus"];
+        echo $criteria;
         if ($criteria == 1) {
             $sql = "SELECT * FROM branchData where branchName = '$branch' and branchYear = '$year'";
                 $result = mysqli_query($conn, $sql);
                 $row = mysqli_fetch_array($result);
                 $crit = $row["branchCriteria"];
-                $newcrit = $reg - 1;
+                $newcrit = $crit - 1;
                 $reg = $row["branchRegistration"];
                 $newReg = $reg - 1;
-                $sql = "UPDATE branchData SET branchCriteria = '$newcrit' branchRegistration = '$newReg' where branchName = '$branch' and branchYear = '$year'";
+                $sql = "UPDATE branchData SET branchCriteria = '$newcrit', branchRegistration = '$newReg' where branchName = '$branch' and branchYear = '$year'";
                 $result = mysqli_query($conn, $sql);
         }
 

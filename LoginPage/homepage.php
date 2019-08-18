@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hello World</title>
+    <title>Home</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -49,10 +49,10 @@
                         </div><!-- .hamburger-menu -->
                         <ul>
                             <li><a href="homepage.php" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Home</a></li>
-                            <li><a href="#"style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">About us</a></li>
+                            <!-- <li><a href="#"style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">About us</a></li> -->
                             <li><a href="eventsFront.php" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Events</a></li>
-                            <li><a href="#" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">News</a></li>
-                            <li><a href="#" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Contact</a></li>
+                            
+                            <li><a href="contact.php" style="color: white;" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='white'">Contact</a></li>
                             <?php
                              
                              if(isset($_SESSION['userId']))
@@ -117,7 +117,7 @@
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
-                                    <a class="btn gradient-bg" href="#">Register here</a>
+                                    <a class="btn gradient-bg" href="eventsFront.php">Events</a>
                                 </div><!-- .entry-footer" -->
                             </div><!-- .col -->
                         </div><!-- .container -->
@@ -157,7 +157,7 @@
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
-                                    <a class="btn gradient-bg" href="#">Register here</a>
+                                    <a class="btn gradient-bg" href="eventsFront.php">Events</a>
                                 </div><!-- .entry-footer" -->
                             </div><!-- .col -->
                         </div><!-- .container -->
@@ -197,7 +197,7 @@
                                 </div><!--- .entry-header -->
 
                                 <div class="entry-footer">
-                                    <a class="btn gradient-bg" href="#">Register here</a>
+                                    <a class="btn gradient-bg" href="eventsFront.php">Events</a>
                                 </div><!-- .entry-footer" -->
                             </div><!-- .col -->
                         </div><!-- .container -->
@@ -820,7 +820,7 @@ the most magnificent three days that you can enjoy to your heart&#39;s content! 
                         <!-- <li><a href="#">About us</a></li> -->
                         <li><a href="eventsFront.php">Events</a></li>
                         <!-- <li><a href="#">News</a></li> -->
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
 

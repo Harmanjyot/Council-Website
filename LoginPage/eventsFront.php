@@ -52,7 +52,7 @@
                <!--              <li><a href="#"style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">About us</a></li> -->
                             <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Events</a></li>
           <!--                   <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">News</a></li> -->
-                            <li><a href="#" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
+                            <li><a href="contact.php" style="color: rgb(70, 20, 110);" onMouseOver="this.style.color='rgb(175, 45, 232)'" onMouseOut="this.style.color='rgb(70, 20, 110)'">Contact</a></li>
                             <?php
                              
                              if(isset($_SESSION['userId']))
@@ -595,7 +595,7 @@
                         <li><a href="homepage.php">Home</a></li>
                       <!--   <li><a href="#">About us</a></li> -->
                         <li><a href="eventsFront.php">Events</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
                 </nav>
 
@@ -650,9 +650,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 <div class="modal-footer">  
                     <!-- <button type="button" name="registerEvent" class="btn btn-default registerEvent">Register</button> -->
                           <form id="image_form" method="post" enctype="multipart/form-data"> 
-        <input type="submit" name="insert" id="insert" value="Insert" class="btn btn-info" />
+        <input type="submit" name="insert" id="insert" value="Register" class="btn btn-primary" style="border: 0px; color: white;" />
       </form>
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>  
+                     <button type="button" class="btn btn-default" data-dismiss="modal" style="border: 0px;">Close</button>  
                 </div>  
            </div>  
       </div>  
