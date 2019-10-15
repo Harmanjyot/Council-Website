@@ -1,5 +1,7 @@
 <?php
   require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
 ?>
 
 <!DOCTYPE html>
@@ -273,3 +275,7 @@
     <!-- Google analytics script-->
   </body>
 </html>
+<?php
+}
+
+?>

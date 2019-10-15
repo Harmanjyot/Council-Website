@@ -1,3 +1,10 @@
+
+<?php
+  require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -76,6 +83,10 @@
               <form method="post" action="export.php">
                <input type="submit" name="export" class="btn btn-success" value="Export" />
               </form>
+              <br>
+              <form method="post" action="start_sports.php">
+               <input type="submit" name="Start Sport Registrations" class="btn btn-success" value="Start Sport Registrations" />
+              </form>
 
             </div>
           </div>
@@ -96,3 +107,7 @@
 
   </body>
 </html>
+
+<?php
+}
+?>

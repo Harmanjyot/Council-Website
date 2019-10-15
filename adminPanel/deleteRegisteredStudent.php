@@ -30,6 +30,7 @@ if ( $type =="Cultural" ) {
 }
 else if ($type == "Sports")
 {
+
 	$sql= "UPDATE studentCriteria SET sport_technicalEvent = '0' where studentID= '$roll'";
 	$result = mysqli_query($conn, $sql);
 	$column = "sport_technicalEvent";
@@ -37,7 +38,7 @@ else if ($type == "Sports")
 
  $sql = "DELETE FROM eventRegistrations WHERE SrNo = '".$_POST["id"]."'";  
  $result = mysqli_query($conn, $sql);
- $sql = "SELECT eventRegistrations.eventID, eventRegistrations.studentRoll, eventList.SrNo, eventList.eventType from eventRegistrations JOIN eventList ON eventRegistrations.eventID = eventList.SrNo where eventList.eventType = '$type'";
+ $sql = "SELECT eventRegistrations.eventID, eventRegistrations.studentRoll, eventList.SrNo, eventList.eventType, studentdata.studentRoll from eventRegistrations INNER JOIN eventList ON eventRegistrations.eventID = eventList.SrNo INNER JOIN studentdata ON studentData.studentRoll = eventRegistrations.studentRoll where eventList.eventType = '$type' and studentData.studentRoll = '$roll'";
  $result = mysqli_query($conn, $sql);
  $row = mysqli_num_rows($result);
  echo $row;
@@ -46,7 +47,7 @@ else if ($type == "Sports")
  	$sql = "UPDATE studentCriteria SET $column = '1', criteriaStatus = '1' where studentID = '$roll'";
  	 $result = mysqli_query($conn, $sql);
  }
- $sql = "SELECT eventRegistrations.eventID, eventRegistrations.studentRoll, eventList.SrNo, eventList.eventType from eventRegistrations JOIN eventList ON eventRegistrations.eventID = eventList.SrNo";
+ $sql = "SELECT eventRegistrations.eventID, eventRegistrations.studentRoll, eventList.SrNo, eventList.eventType from eventRegistrations JOIN eventList ON eventRegistrations.eventID = eventList.SrNo where eventRegistrations.eventID = '$event' and eventRegistrations.studentRoll = '$roll'";
 	 $result = mysqli_query($conn, $sql);
 	 $row = mysqli_num_rows($result);
 	 echo $row;
@@ -68,8 +69,5 @@ else if ($type == "Sports")
  	}
 
 
- // if(mysqli_query($conn, $sql))  
- // {  
- //    echo 'Data Deleted';  
- // }  
+ require "../php/setBranch.php";
  ?>

@@ -45,6 +45,8 @@ if(mysqli_num_rows($result) > 0)
                          <th>Event Time</th>
                          <th>Event Description</th>
                          <th>Event Capacity</th>
+                         <th>Team Event = 1</th>
+                         <th>Team Limit</th>
                          <th>Event Type</th> 
                     </tr>
   ';
@@ -57,6 +59,8 @@ if(mysqli_num_rows($result) > 0)
                          <td>'.$row["eventTime"].'</td>
                          <td>'.$row["eventDescription"].'</td>
                          <td>'.$row["eventCapacity"].'</td>
+                         <td>'.$row["eventTeam"].'</td>
+                         <td>'.$row["teamCapacity"].'</td>
                          <td>'.$row["eventType"].'</td> 
                     </tr>
    ';

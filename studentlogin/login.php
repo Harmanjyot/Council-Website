@@ -2,8 +2,8 @@
 
 require "../php/conn.php";
 
-$rollno = $_POST['rollno'];
-$password = $_POST['password'];
+$rollno = mysqli_real_escape_string($conn, $_POST['rollno']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 
 $sql = "SELECT * FROM studentdata WHERE studentRoll = ?";
@@ -15,12 +15,11 @@ $result = mysqli_stmt_get_result($stmt);
 			if (mysqli_num_rows($result) > 0) {
 				$row = mysqli_fetch_assoc($result);
 
-				$pwdCheck = password_verify($password, $row['studentPass']);
-				if ($pwdCheck == false) {
+				if ($password != $row['studentPass']) {
 					echo "Wrong Password or Roll No.";
 					exit();
 				}
-				else if ($pwdCheck == true) {
+				else if ($password == $row['studentPass']) {
 
 					session_start();
 					$_SESSION['userId'] = $row['userID'];

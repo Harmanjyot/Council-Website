@@ -1,3 +1,8 @@
+<?php
+  require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,6 +123,8 @@
            var sport_time = $('#sport_time').text(); 
            var sport_desc = $('#sport_desc').text(); 
            var sport_limit = $('#sport_limit').text();
+           var team_limit = $('#team_limit').text();
+           var sport_team = $('#sport_team').text();
            var event_Type = "Cultural";
            if(sport_name == '')  
            {  
@@ -144,14 +151,34 @@
                 alert("Enter event_limit");  
                 return false;  
            }
+           if(sport_team == '')  
+           {  
+                alert("Enter event_team");  
+                return false;  
+           }
+           if(team_limit == '')  
+           {  
+                alert("Enter team_limit");  
+                return false;  
+           }
+             if(sport_team == '')  
+           {  
+                alert("Enter sport_team");  
+                return false;  
+           }
+           if(team_limit == '')  
+           {  
+                alert("Enter team_limit");  
+                return false;  
+           }
            $.ajax({  
                 url:"insertCultural.php",  
                 method:"POST",  
-                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, event_Type:event_Type, sport_limit:sport_limit},  
+                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, event_Type:event_Type, sport_team:sport_team, team_limit:team_limit},  
                 dataType:"text",  
                 success:function(data)  
                 {  
-                     alert(data);  
+                       alert(data);
                      fetch_data();  
                 }  
            })  
@@ -174,8 +201,7 @@
       //           dataType:"text",  
       //           success:function(data)  
       //           {  
-      //                alert(data);  
-      //                fetch_data();  
+      //               //                fetch_data();  
       //           }  
       //      })  
       // }); 
@@ -206,7 +232,6 @@
            processData:false,
            success:function(data)
            {
-            alert(data);
             fetch_data();
             $('#image_form')[0].reset();
             $('#imageModal').modal('hide');
@@ -225,12 +250,11 @@
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
-                     alert(data);  
                      fetch_data();
                 }  
            });  
       }  
-      $(document).on('blur', '.sport_name', function(){  
+     $(document).on('blur', '.sport_name', function(){  
            var id = $(this).data("id1");  
            var sport_name = $(this).text();  
            edit_data(id, sport_name, "eventName");  
@@ -255,6 +279,16 @@
            var sport_limit = $(this).text();  
            edit_data(id, sport_limit, "eventCapacity");  
       }); 
+      $(document).on('blur', '.sport_team', function(){  
+           var id = $(this).data("id7");  
+           var sport_team = $(this).text();  
+           edit_data(id, sport_team, "eventTeam");  
+      });
+      $(document).on('blur', '.team_limit', function(){  
+           var id = $(this).data("id8");  
+           var team_limit = $(this).text(); 
+           edit_data(id, team_limit, "teamCapacity");  
+      });
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id5");  
            if(confirm("Are you sure you want to delete this?"))  
@@ -265,7 +299,6 @@
                      data:{id:id},  
                      dataType:"text",  
                      success:function(data){  
-                          alert(data);  
                           fetch_data();  
                      }  
                 });  
@@ -299,3 +332,7 @@
    </div>
   </div>
  </div>
+
+ <?php
+}
+ ?>

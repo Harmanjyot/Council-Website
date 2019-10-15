@@ -1,3 +1,8 @@
+<?php
+  require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -188,7 +193,6 @@
            processData:false,
            success:function(data)
            {
-            alert(data);
             fetch_data();
             $('#image_form')[0].reset();
             $('#imageModal').modal('hide');
@@ -207,7 +211,6 @@
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
-                     alert(data);  
                      fetch_data();
                 }  
            });  
@@ -233,7 +236,6 @@
                      data:{id:id},  
                      dataType:"text",  
                      success:function(data){  
-                          alert(data);  
                           fetch_data();  
                      }  
                 });  
@@ -267,3 +269,6 @@
    </div>
   </div>
  </div>
+<?php
+}
+ ?>

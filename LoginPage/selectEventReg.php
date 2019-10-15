@@ -33,6 +33,27 @@
                      <td width="70%">'.$row["eventCapacity"].'</td>  
                 </tr>  
                 ';  
+
+                if ($row["eventTeam"] == 1) {
+                  $output .= '
+                    <tr>  
+                     <td width="30%"><label><b>Event Type</b></label></td>  
+                     <td width="70%" class = "eventType">Team Event</td>  
+                </tr> 
+                <tr>  
+                     <td width="30%"><label><b>Team Limit</b></label></td>  
+                     <td width="70%">'.$row["teamCapacity"].'</td>  
+                </tr> 
+                  ';
+                }
+                else
+                {
+                  $output .= '
+                    <tr>  
+                     <td width="30%"><label><b>Event Type</b></label></td>  
+                     <td width="70%" class = "eventType">Solo Event</td>  
+                </tr> ';
+                }
       }  
       $output .= '</table></div>
 

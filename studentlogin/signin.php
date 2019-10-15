@@ -2,6 +2,7 @@
 
 require "../php/conn.php";
 
+
 $username = $_POST['name'];
 $rollno = $_POST['rollno'];
 $email = $_POST['email'];
@@ -62,7 +63,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/"
             	$vkey = md5(time().$rollno);
                 $to = $email;
                 $subject = "Email verification";
-                $message = "<a href = 'http://localhost/Council-Website/studentlogin/verificationDone.php?vkey=$vkey'>Register Account</a>";
+                $message = "<a href = 'faces.fcrit.ac.in/Council-Website/studentlogin/verificationDone.php?vkey=$vkey'>Register Account</a>";
                 $headers = "From: councilfcrit@gmail.com";
                 $headers .= "MIME-Version: 1.0" . "\r\n";
                 $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
@@ -84,7 +85,8 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/"
                         // echo "<div>Unverified email was saved to the database.</div>";
                     }else{
                         echo "<div>Unable to save your email to the database.";
-                        //print_r($stmt->errorInfo());
+                        echo mysqli_error($conn);
+                     
                     }
  
                 }else{

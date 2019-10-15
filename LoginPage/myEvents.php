@@ -1,4 +1,4 @@
-<?php
+﻿<?php
  Require "../php/conn.php";
  session_start() ;
 ?>
@@ -359,7 +359,7 @@
                     <div class="swiper-wrapper">
 
                         <?php
-                            $sql = "SELECT * FROM eventList where eventType = 'Sports' LIMIT 3";  
+                            $sql = "SELECT * FROM eventList where eventType = 'Sports' ORDER BY RAND() LIMIT 3";  
                             $result = mysqli_query($conn, $sql); 
                             if(mysqli_num_rows($result) > 0)  
                             {  
@@ -386,7 +386,7 @@
                                 <?php 
                                 } }
 
-                            $sql = "SELECT * FROM eventList where eventType = 'Cultural' LIMIT 3";  
+                            $sql = "SELECT * FROM eventList where eventType = 'Cultural' ORDER BY RAND() LIMIT 3";  
                             $result = mysqli_query($conn, $sql); 
                             if(mysqli_num_rows($result) > 0)  
                             {  

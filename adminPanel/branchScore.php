@@ -1,5 +1,7 @@
 <?php
   require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
 ?>
 
 <!DOCTYPE html>
@@ -139,3 +141,6 @@
   </body>
 </html>
 
+<?php
+}
+?>

@@ -1,3 +1,10 @@
+<?php
+  require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -121,7 +128,6 @@
                      data:{id:id},  
                      dataType:"text",  
                      success:function(data){ 
-                     alert(data); 
                           fetch_data();  
                      }  
                 });  
@@ -134,3 +140,6 @@
 
   </body>
 </html>
+<?php
+}
+?>

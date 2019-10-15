@@ -79,4 +79,6 @@ require "../php/conn.php";
  		echo "Registrations full";
  	}
 
+ 	require "../php/setBranch.php";
+
 ?>

@@ -511,7 +511,12 @@
                     <div class="swiper-wrapper">
 
                         <?php
-                            $sql = "SELECT * FROM eventList where eventType = 'Sports' OR eventType= 'Technical'";  
+
+                            $sql = "SELECT * FROM statusTable WHERE SrNo='1'";
+                            $result = mysqli_query($conn, $sql);
+                            $row = mysqli_fetch_array($result);
+                            if ($row["sportSet"] == 1) {
+                                $sql = "SELECT * FROM eventList where eventType = 'Sports' OR eventType= 'Technical'";  
                             $result = mysqli_query($conn, $sql); 
                             if(mysqli_num_rows($result) > 0)  
                             {  
@@ -534,23 +539,42 @@
                                             <div class="posted-date"><?php echo $row["eventDate"]; ?> <span><?php echo $row["eventTime"]; ?></span></div>
                                         </div>
                                     </div>
+                            
+
+                            
 
                                 <?php 
                                 } }
 
-                        ?>
+                                ?> 
 
-
-                    </div></div>>
+                                </div></div>
                 <div class="swiper-pagination"></div>
-                <div style="position: relative; right: -300px; top: -330px">
+                    <div style="position: relative; right: -300px; top: -330px">
                 <div class="swiper-button-next flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg></span>
                     </div></div>
-
-                    <div class="swiper-button-prev flex justify-content-center align-items-center">
+                     <div class="swiper-button-prev flex justify-content-center align-items-center">
                         <span><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/></svg></span>
-                    </div></div> </div> 
+                    </div>
+                                <?php
+                            }
+                                else {
+                                    ?>
+
+                        <h1 class="entry-title" >Sports registrations have not yet begun</h1>
+                    </div></div>
+                <div class="swiper-pagination"></div>
+                                    <?php
+                                }
+
+                        ?>
+
+
+                    
+            
+
+                   </div> </div> 
 </div> </div>
 
 <!-- <div class="newsletter-subscribe">
@@ -650,6 +674,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 <div class="modal-footer">  
                     <!-- <button type="button" name="registerEvent" class="btn btn-default registerEvent">Register</button> -->
                           <form id="image_form" method="post" enctype="multipart/form-data"> 
+                            <label>Once you click on Register, you will be automatically registered.</label>
         <input type="submit" name="insert" id="insert" value="Register" class="btn btn-primary" style="border: 0px; color: white;" />
       </form>
                      <button type="button" class="btn btn-default" data-dismiss="modal" style="border: 0px;">Close</button>  
@@ -680,16 +705,26 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
           var userid = '<?php echo $userID ?>' ;
           var userroll = '<?php echo $userRoll ?>' ;
           var event_name = $('.event_name').text();
-          $.ajax({
-           url:"completeReg.php",
-           method:"POST",
-           data:{userid:userid, event_name:event_name, userroll:userroll},
-           success:function(data)
-           {
-            alert(data);
-            $('#dataModal').modal('hide');
+          var event_type = $('.eventType').text();
+          if (event_type == "Team Event") {
+
+            location.href = "teamRegistrations.php?event=" + event_name;
+
           }
-         });
+          else if (event_type == "Solo Event")
+          {
+                $.ajax({
+               url:"completeReg.php",
+               method:"POST",
+               data:{userid:userid, event_name:event_name, userroll:userroll},
+               success:function(data)
+               {
+                 alert(data);
+                $('#dataModal').modal('hide');
+                }
+            });
+          }
+          
         });
 
 

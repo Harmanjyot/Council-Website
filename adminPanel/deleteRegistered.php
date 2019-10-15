@@ -38,4 +38,6 @@
     	$sql = "DELETE FROM eventRegistrations WHERE studentRoll = '".$_POST["id"]."'";
         $result = mysqli_query($conn, $sql);
 
+        require "../php/setBranch.php";
+
         ?>

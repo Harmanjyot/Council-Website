@@ -5,8 +5,6 @@
 	$userEmail = $_GET["email"];
 	$verifyStat = 0;
 
-
-
 	 	$query = "SELECT SrNo FROM studentVerification WHERE studentRoll = '$userRoll' and verified = '1' and studentEmail='$userEmail'";
  		$result = mysqli_query($conn, $query);
  		$num = mysqli_num_rows($result);
@@ -82,7 +80,7 @@
                         
                     }else{
                         echo "<div>Unable to save your email to the database.";
-                        //print_r($stmt->errorInfo());
+                        print_r($stmt->errorInfo());
                     }
  
                 }else{

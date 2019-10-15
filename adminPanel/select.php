@@ -13,6 +13,8 @@
                      <th width="15%">Event Time</th>  
                      <th width="30%">Event Description</th> 
                      <th width="10%">Event Capacity</th>
+                     <th width="50%">Team = 1</th>
+                     <th width="50%">Team limit</th>
                      <th width="50%">Event Image</th>
                      <th width="50%">Image Preview</th>
                      <th width="10%">Delete</th>  
@@ -29,6 +31,8 @@
                      <td class = "sport_time" data-id3="'.$row["SrNo"].'" contenteditable>'.$row["eventTime"].'</td>  
                      <td class = "sport_desc" data-id4="'.$row["SrNo"].'" contenteditable>'.$row["eventDescription"].'</td>  
                      <td class = "sport_limit" data-id6="'.$row["SrNo"].'" contenteditable>'.$row["eventCapacity"].'</td>
+                     <td class = "sport_team" data-id7="'.$row["SrNo"].'" contenteditable> '.$row["eventTeam"].' </td>
+                     <td class = "team_limit" data-id8="'.$row["SrNo"].'" contenteditable>'.$row["teamCapacity"].'</td>
                      <td>
                         <button type="button" name="update" class="btn btn-warning bt-xs update" id="'.$row["SrNo"].'">Upload</button>
                       </td>
@@ -47,6 +51,8 @@
                 <td id="sport_time" contenteditable></td>  
                 <td id="sport_desc" contenteditable></td> 
                 <td id="sport_limit" contenteditable></td>
+                <td id = "sport_team" contenteditable> </td>
+                <td id="team_limit" contenteditable></td>
                 <td> </td>
                 <td> </td>
                 <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
@@ -62,6 +68,8 @@
                           <td id="sport_time" contenteditable></td>  
                           <td id="sport_desc" contenteditable></td> 
                           <td id="sport_limit" contenteditable></td>
+                          <td id = "sport_team" contenteditable> </td>
+                          <td id="team_limit" contenteditable></td>
                           <td> </td>
                           <td> </td>
                           <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td> 

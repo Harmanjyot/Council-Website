@@ -1,3 +1,10 @@
+<?php
+  require "../php/conn.php";
+  session_start();
+  if ($_SESSION["userType"] == "admin") {
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -117,6 +124,8 @@
            var sport_time = $('#sport_time').text(); 
            var sport_desc = $('#sport_desc').text(); 
            var sport_limit = $('#sport_limit').text();
+           var team_limit = $('#team_limit').text();
+           var sport_team = $('#sport_team').text();
            var event_Type = "Sports";
            if(sport_name == '')  
            {  
@@ -143,14 +152,24 @@
                 alert("Enter sport_limit");  
                 return false;  
            }
+           if(sport_team == '')  
+           {  
+                alert("Enter sport_team");  
+                return false;  
+           }
+           if(team_limit == '')  
+           {  
+                alert("Enter team_limit");  
+                return false;  
+           }
+         
            $.ajax({  
                 url:"insert.php",  
                 method:"POST",  
-                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, event_Type:event_Type, sport_limit:sport_limit},  
+                data:{sport_name:sport_name, sport_desc:sport_desc, sport_time:sport_time, sport_date:sport_date, event_Type:event_Type, sport_limit:sport_limit, team_limit:team_limit, sport_team:sport_team},  
                 dataType:"text",  
                 success:function(data)  
                 {  
-                  
                      fetch_data();  
                 }  
            })  
@@ -173,7 +192,7 @@
       //           dataType:"text",  
       //           success:function(data)  
       //           {  
-      //                alert(data);  
+      //              
       //                fetch_data();  
       //           }  
       //      })  
@@ -224,7 +243,6 @@
                 data:{id:id, text:text, column_name:column_name},  
                 dataType:"text",  
                 success:function(data){  
-                     
                      fetch_data();
                 }  
            });  
@@ -254,6 +272,16 @@
            var sport_limit = $(this).text();  
            edit_data(id, sport_limit, "eventCapacity");  
       }); 
+      $(document).on('blur', '.sport_team', function(){  
+           var id = $(this).data("id7");  
+           var sport_team = $(this).text();  
+           edit_data(id, sport_team, "eventTeam");  
+      });
+      $(document).on('blur', '.team_limit', function(){  
+           var id = $(this).data("id8");  
+           var team_limit = $(this).text(); 
+           edit_data(id, team_limit, "teamCapacity");  
+      });
       $(document).on('click', '.btn_delete', function(){  
            var id=$(this).data("id5");  
            if(confirm("Are you sure you want to delete this?"))  
@@ -299,3 +327,8 @@
    </div>
   </div>
  </div>
+
+ <?php
+}
+
+ ?>
